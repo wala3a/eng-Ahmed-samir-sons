@@ -27,6 +27,110 @@
 @media(max-width:620px){.welcome-card{padding:28px 18px;border-radius:21px}.welcome-quotes p{font-size:17px}.welcome-quotes p:first-child{font-size:20px}.welcome-quotes p:nth-child(2){font-size:16px}.welcome-quotes p:last-child{font-size:15px}.extra-header{display:block}.extra-panel{padding:15px}.extra-aside{grid-template-columns:1fr}.landing-special{grid-template-columns:1fr}.prediction-card{grid-template-columns:1fr;padding:14px}.prediction-options{justify-content:stretch}.prediction-options button{flex:1}.lab-metrics{grid-template-columns:repeat(3,1fr)}.lab-metric strong{font-size:15px}.mag-canvas{height:310px}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
 
+
+/* v3: compact circuit board: entire workspace visible on portrait phones */
+html,body{max-width:100%;overflow-x:clip}
+.layout,.main,.extra-view,.extra-columns,.extra-panel,.lab-canvas-shell,#freeBoard{min-width:0;max-width:100%}
+.circuit-svg{min-width:0;width:100%;height:auto;aspect-ratio:860/440}
+.user-prefs{display:flex;align-items:center;gap:7px;flex-shrink:0}
+.pref-button{display:inline-flex;justify-content:center;align-items:center;gap:7px;min-width:42px;min-height:41px;padding:7px 10px;border-radius:11px;border:1px solid var(--line);background:var(--panel);color:var(--ink);font-weight:900;font-size:12px;line-height:1.1;white-space:nowrap}
+.pref-button:active{transform:scale(.97)}.pref-emoji{font-size:17px}.pref-lang{letter-spacing:.4px}
+@media (max-width:1100px){.header-middle{display:none}.header-inner{gap:8px}.header-right{gap:9px}.header-tools .header-tool:not(.primary){display:none}}
+@media (max-width:720px){.header-tools .header-tool.primary{display:none}.header-right{gap:7px}.brand{gap:7px}.brand strong{font-size:19px}.brand small{font-size:10px}.brand-symbol{width:36px;height:36px}.pref-button{min-width:38px;min-height:38px;padding:6px 8px}.pref-label{display:none}.header-inner{padding:0 12px}.progress-mini{display:none}}
+@media (max-width:620px){.lab-canvas-shell{overflow:hidden;margin:12px 0 10px}.circuit-svg{width:100%;min-width:0;aspect-ratio:auto;display:block;touch-action:none}.lab-canvas-top{right:10px;top:9px;font-size:9px}.lab-canvas-bottom{left:10px;right:10px;bottom:8px;font-size:9px;text-align:center}.extra-panel{padding:12px}.tool-palette{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}.component-add{min-width:0;padding:9px 4px;font-size:11px;line-height:1.4}.component-add span{display:block;margin:0 auto 3px;font-size:21px}.lab-metrics{gap:6px}.lab-metric{padding:10px 5px}.lab-metric strong{font-size:14px}.lab-metric small{font-size:9px}.extra-columns{gap:12px}.experiment-actions{gap:6px}.lab-action{padding:8px 10px;font-size:11px}}
+@media (max-width:350px){.brand small{display:none}.pref-button{min-width:34px;padding:5px}.header-right{gap:4px}.header-inner{padding:0 8px}.tool-palette{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Full light/dark color system with accessible contrast */
+html[data-theme="dark"]{color-scheme:dark;--bg:#0b1522;--ink:#e9f1fa;--muted:#a5b4c8;--teal:#4cddc4;--teal-dark:#15b59e;--teal-pale:#123e3e;--line:#304154;--panel:#142538;--navy:#071c2d;--shadow:0 12px 28px #0003}
+html[data-theme="dark"] body{background:var(--bg);color:var(--ink)}
+html[data-theme="dark"] :is(.site-header,.sidebar,.lab-card,.experiment-card,.task-card,.insight-card,.navigation-card,.special-tile,.extra-panel,.prediction-card,.welcome-card,.quiet-button,.header-tool:not(.primary),.pref-button){background:#142538!important;border-color:#304154!important;color:#e9f1fa!important}
+html[data-theme="dark"] :is(.sidebar-bottom,.nav-item.active,.sidebar-special.selected,.lab-metric,.lab-action,.component-add,.tile-symbol,.lab-icon,.prediction-options button,.success-strip,.hero-badge,.stage-note,.step-pill){background:#1d3543!important;color:#e9f1fa!important;border-color:#36596a!important}
+html[data-theme="dark"] :is(.sidebar-special,.nav-number,.exp-why-button,.why-content,.explain-toggle,.lab-control input,.prediction-feedback,.warning-strip){background-color:#213b4a;color:#e9f1fa;border-color:#386273}
+html[data-theme="dark"] :is(.landing-cover,.stage,.lab-canvas-shell){background-color:#0c2536}
+html[data-theme="dark"] :is(.lab-card h3,.extra-header h1,.lesson-hero h1,.home-head h2,.sidebar-top h2,.welcome-card h2,.welcome-quotes p,.brand strong,.special-tile strong,.section-heading h2,.controls-top h2,.card-top h2){color:#f1f8fe!important}
+html[data-theme="dark"] :is(.brand small,.sidebar-top p,.lab-card p,.lab-card small,.extra-header p,.quiet-line,.lab-control small,.sidebar-special small,.lesson-hero p,.prediction-card p,.stage-note,.small-note,.welcome-lead,.home-head small,.task-card p,.insight-card p,.navigation-card p,.lesson-kicker,.sidebar-bottom small){color:#afc1d1!important}
+html[data-theme="dark"] :is(.lab-metric strong,.header-tool,.lab-card-bottom,.sidebar-special.selected,.eyebrow,.lab-label,.progress-mini){color:#6fe4d0!important}
+html[data-theme="dark"] :is(.tool-palette,.extra-panel,.experiment-card){box-shadow:none}
+html[data-theme="dark"] .site-header{border-bottom:1px solid #304154}
+html[data-theme="dark"] :is(.controls-top,.welcome-quotes,.welcome-quotes p){border-color:#304154}
+html[data-theme="dark"] .lab-action.highlight,html[data-theme="dark"] .header-tool.primary{background:#087f78!important;color:#fff!important}
+html[data-theme="dark"] .prediction-options button.chosen{background:#24564e!important;border-color:#4fceae!important}
+html[data-theme="dark"] .why-content,html[data-theme="dark"] .prediction-feedback{background:#193846!important;color:#dbeaf4}
+html[data-theme="dark"] .lab-metric strong{color:#71ebcf!important}
+html[data-theme="dark"] .welcome-card button{background:#0d9386;color:#fff}
+html[lang="en"] .brand,html[lang="en"] .lab-card,html[lang="en"] .special-tile,html[lang="en"] .nav-item,html[lang="en"] .sidebar-special,html[lang="en"] .explain-toggle,html[lang="en"] .prediction-card,html[lang="en"] .extra-panel{text-align:left}
+html[lang="en"] .sidebar{border-left:0;border-right:1px solid var(--line)}
+html[lang="en"] .prediction-card{border-right:1px solid var(--line);border-left:4px solid #08a48e}
+html[lang="en"] .lab-canvas-top{right:auto;left:13px}
+html[lang="en"] .lab-canvas-bottom{left:auto;right:13px}
+html[lang="en"] .lab-action,html[lang="en"] .component-add{direction:ltr}
+
+
+/* v3 finishing: ensure header menu icon remains visible on dark theme. */
+html[data-theme="dark"] .icon-button{background:#1e3648;color:#e7f8ff;border-color:#456273}
+html[data-theme="dark"] .icon-button svg{stroke:#e7f8ff}
+html[data-theme="dark"] .component-add{color:#f0f7ff!important}
+html[data-theme="dark"] .progress-track{background:#2c4852}
+html[data-theme="dark"] :is(.toast,.toast.show){background:#16483e;color:#e6fff9}
+</style>
+<style>
+/* Additive 2D/3D lab: all rules scoped to the new magnetic studio. */
+.landing-special:has([data-studio-open]){grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.magstudio{width:100%;min-width:0}
+.magstudio .studio-panel{background:var(--panel);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:18px;padding:19px;min-width:0}
+.magstudio h2{font-size:16px;margin:0 0 14px;color:var(--ink)}
+.magstudio h3{font-size:15px;color:var(--ink);margin:0 0 9px}
+.magstudio .studio-form-panel{margin:0 0 18px}
+.magstudio .studio-form-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:7px}
+.magstudio .studio-form{background:var(--panel);border:1px solid var(--line);border-radius:11px;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:11px 6px;min-height:90px;color:var(--ink);gap:3px;transition:background .2s,border-color .2s}
+.magstudio .studio-form span{font-size:25px;font-weight:700;line-height:1.3;color:var(--teal)}
+.magstudio .studio-form b{font-size:11px;line-height:1.5;text-align:center}
+.magstudio .studio-form.selected{background:var(--teal-pale);border:2px solid var(--teal)}
+.magstudio .studio-columns{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,315px);gap:18px;align-items:start}
+.magstudio .studio-maincol{display:grid;gap:17px;min-width:0}
+.magstudio .studio-viewport-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.magstudio .studio-viewport-top h2{margin:0}
+.magstudio .studio-view-tabs,.magstudio .studio-segment{display:inline-grid;grid-template-columns:1fr 1fr;gap:5px;background:var(--bg);padding:4px;border:1px solid var(--line);border-radius:10px;direction:ltr}
+.magstudio .studio-view-tabs button,.magstudio .studio-segment button{border:0;border-radius:7px;background:transparent;padding:8px 13px;color:var(--ink);font-size:12px;font-weight:800}
+.magstudio .studio-view-tabs button.selected,.magstudio .studio-segment button.active{background:var(--teal);color:#fff}
+.magstudio .studio-viewport{background:#102c41;border-radius:14px;margin-top:14px;overflow:hidden;min-height:240px}
+.magstudio .studio-viewport .mag-2d-scene,.magstudio .studio-viewport .mag-3d-scene{position:relative;min-height:250px;width:100%}
+.magstudio .studio-viewport svg{width:100%;height:auto;display:block;touch-action:none}
+.magstudio .studio-viewport canvas{width:100%;height:auto;aspect-ratio:900/490;display:block;min-height:210px;touch-action:none;cursor:grab}
+.magstudio .studio-viewport canvas:active{cursor:grabbing}
+.magstudio .mag-3d-hint,.magstudio .mag-drag-note{position:absolute;bottom:10px;right:10px;pointer-events:none;color:#d2fff5;background:#103a4cbf;border-radius:9px;padding:5px 10px;font-size:11px}
+.magstudio .mag-caption{font:600 13px Arial,sans-serif;fill:#a7cad6}.magstudio .mag-core{font:700 29px Arial,sans-serif;fill:#baffee}.magstudio .mag-core-small{font:700 19px Arial,sans-serif;fill:#baffee}.magstudio .mag-pole{font:700 21px Arial,sans-serif;fill:#ffcf87}
+.magstudio .mag-probe{cursor:grab;touch-action:none}.magstudio .mag-current-path{fill:none;stroke:#b4ffdc;stroke-width:4;stroke-dasharray:3 16;animation:studio-flow 1.2s linear infinite}.magstudio .mag-current-path.reverse{animation-direction:reverse}
+@keyframes studio-flow{to{stroke-dashoffset:-38}}
+.magstudio .studio-scene-note,.magstudio .studio-explain{color:var(--muted);font-size:12px;margin:13px 0 0;line-height:1.9}
+.magstudio .studio-live{font-weight:900;font-size:10px;color:#089b79;float:left}
+.magstudio .studio-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.magstudio .studio-metric{border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:var(--bg);display:flex;flex-direction:column;gap:4px;min-width:0}
+.magstudio .studio-metric small{font-size:11px;color:var(--muted)}.magstudio .studio-metric strong{font-size:15px;color:var(--teal);direction:ltr;overflow-wrap:anywhere;text-align:start}
+.magstudio .studio-controls{position:sticky;top:95px;max-height:calc(100vh - 110px);overflow-y:auto;overscroll-behavior:contain}
+.magstudio .studio-controls-description{font-size:11px;color:var(--muted);margin:-5px 0 13px}
+.magstudio #studio-control-list{display:grid;gap:15px}
+.magstudio .studio-control{display:block;border-bottom:1px solid var(--line);padding-bottom:12px}
+.magstudio .studio-control>span:first-child{display:flex;justify-content:space-between;gap:10px;align-items:center;font-size:12px}
+.magstudio .studio-control b{font-weight:700}.magstudio .studio-control output{font-size:12px;direction:ltr;color:var(--teal);font-weight:900;white-space:nowrap}
+.magstudio .studio-control-title{display:block;font-size:12px;font-weight:800;margin-bottom:9px}
+.magstudio .studio-control input[type=range]{width:100%;accent-color:var(--teal);cursor:pointer;margin:9px 0 4px;direction:ltr}
+.magstudio .studio-minmax{display:flex!important;justify-content:space-between;color:var(--muted);font-size:10px;direction:ltr}
+.magstudio .studio-minmax i{font-style:normal}
+.magstudio .studio-toggle-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}
+.magstudio .studio-chip,.magstudio .studio-power,.magstudio .studio-reset{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:9px;padding:9px 10px;font-size:11px;font-weight:800}
+.magstudio .studio-chip.active{background:var(--teal-pale);color:var(--teal);border-color:var(--teal)}
+.magstudio .studio-power{background:var(--teal);color:white;border:0}.magstudio .studio-quiz p{font-size:13px;color:var(--ink)}
+.magstudio .studio-quiz-options{display:flex;flex-wrap:wrap;gap:7px}.magstudio .studio-quiz-options button{padding:9px 12px;border-radius:9px;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-weight:700;font-size:12px}
+.magstudio .studio-quiz-options .correct{border-color:#24a778;background:#e5f8f0;color:#086a51}.magstudio .studio-quiz-options .wrong{border-color:#e8ac6c;background:#fff1e4;color:#954909}
+.magstudio .studio-quiz-result{margin-top:10px;font-size:12px;color:var(--teal)}
+.magstudio .studio-footer-note{margin-top:14px;color:var(--muted);line-height:2;font-size:11px}
+@media(max-width:1100px){.magstudio .studio-form-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:850px){.magstudio .studio-columns{grid-template-columns:1fr}.magstudio .studio-controls{position:static;max-height:none;overflow:visible}.magstudio .studio-form-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:470px){.magstudio .studio-form-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.magstudio .studio-panel{padding:12px}.magstudio .studio-form{min-height:72px}.magstudio .studio-viewport canvas{min-height:165px}.magstudio .studio-metrics{grid-template-columns:1fr 1fr}.magstudio .studio-metric strong{font-size:12px}}
+html[data-theme="dark"] .magstudio .studio-quiz-options .correct{background:#103b32;color:#a3f2d1}
+html[data-theme="dark"] .magstudio .studio-quiz-options .wrong{background:#432c17;color:#ffd4a8}
+
 </style>
 </head>
 <body>
@@ -38,7 +142,10 @@
       <span><strong>فِيزيا</strong><small>اتعلمها بالتجربة</small></span>
     </button>
     <div class="header-middle"><span class="tiny-dot"></span> معمل الكهرباء والمغناطيسية <span class="header-unit">· الوحدة الأولى</span></div>
-    <div class="header-right"><div class="header-tools"><button class="header-tool primary" data-special="free">🔌 المعمل الحر</button><button class="header-tool" data-special="magnetic">🧲 مغناطيسية 3D</button><button class="header-tool" id="welcomeReopen" title="رسالة البداية" aria-label="رسالة البداية">✦</button></div>
+    <div class="header-right"><div class="user-prefs" aria-label="إعدادات العرض">
+      <button class="pref-button" id="themeToggle" type="button" aria-label="تفعيل الوضع الداكن" title="Light / Dark"><span class="pref-emoji" aria-hidden="true">🌙</span><span class="pref-label">Dark</span></button>
+      <button class="pref-button" id="langToggle" type="button" aria-label="Switch to English" title="العربية / English"><span class="pref-lang" aria-hidden="true">EN</span></button>
+    </div><div class="header-tools"><button class="header-tool primary" data-special="free">🔌 المعمل الحر</button><button class="header-tool" data-special="magnetic">🧲 مغناطيسية 3D</button><button class="header-tool" id="welcomeReopen" title="رسالة البداية" aria-label="رسالة البداية">✦</button></div>
       <div class="progress-mini"><span id="headerCount">٠ / ٨</span><div class="progress-track"><span id="headerBar"></span></div></div>
       <button class="icon-button" id="menuBtn" aria-label="عرض الدروس" title="الدروس"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
     </div>
@@ -269,10 +376,13 @@ function freeUndo(){if(!free.undo.length){fireToast('مفيش تغيير ترج�
 function freeRedo(){if(!free.redo.length){fireToast('مفيش تغيير تعمله تاني');return}free.undo.push(cp({parts:free.parts,wires:free.wires,power:free.power}));restoreFree(free.redo.pop());notePredictionChange('free')}
 function createPart(type,x,y,vertical){let p={id:uid(),type,x,y,vertical:!!vertical,value:type==='battery'?9:type==='resistor'?9:type==='lamp'?6:type==='ammeter'?.02:type==='voltmeter'?1000000:.02,closed:true};return p}
 function loadSample(){captureFree();const batteryP=createPart('battery',116,210,true),res=createPart('resistor',345,112),lamp=createPart('lamp',625,205,true),sw=createPart('switch',345,345);free.parts=[batteryP,res,lamp,sw];free.wires=[[batteryP.id+':a',res.id+':a'],[res.id+':b',lamp.id+':a'],[lamp.id+':b',sw.id+':b'],[sw.id+':a',batteryP.id+':b']];free.selected=res.id;free.terminal=null;renderFreeLab();notePredictionChange('free');fireToast('دائرة جاهزة: غيّر المقاومة وراقب التيار')}
-function addPart(type){if(free.parts.length>=11){fireToast('حد المعمل ١١ قطعة علشان يفضل واضح');return}if(type==='battery'&&free.parts.some(p=>p.type==='battery')){fireToast('النسخة دي بتدعم بطارية واحدة في الدائرة');return}captureFree();const x=170+(free.parts.length%4)*166,y=120+Math.floor(free.parts.length/4)*115;let p=createPart(type,x,y);free.parts.push(p);free.selected=p.id;free.terminal=null;renderFreeLab();fireToast(`أضفت ${typeNames[type]}. اسحبها لأي مكان ووصل أطرافها`)}
+function addPart(type){if(free.parts.length>=11){fireToast('حد المعمل ١١ قطعة علشان يفضل واضح');return}if(type==='battery'&&free.parts.some(p=>p.type==='battery')){fireToast('النسخة دي بتدعم بطارية واحدة في الدائرة');return}captureFree();const x=compactBoard()?(free.parts.length%2?620:190):170+(free.parts.length%4)*166,y=compactBoard()?120+Math.floor(free.parts.length/2)*115:120+Math.floor(free.parts.length/4)*115;let p=createPart(type,x,y);free.parts.push(p);free.selected=p.id;free.terminal=null;renderFreeLab();fireToast(`أضفت ${typeNames[type]}. اسحبها لأي مكان ووصل أطرافها`)}
 function termPosition(part,which){const d=part.vertical?{x:0,y:45}:{x:52,y:0};return{x:part.x+(which==='a'?-1:1)*d.x,y:part.y+(which==='a'?-1:1)*d.y}}
 function parseTerm(t){const k=t.lastIndexOf(':');return{id:t.slice(0,k),side:t.slice(k+1)}}
-function wirePos(t){const {id,side}=parseTerm(t),part=free.parts.find(p=>p.id===id);return part?termPosition(part,side):null}
+function compactBoard(){return window.matchMedia('(max-width:620px)').matches}
+function boardPartPos(p){return compactBoard()?{x:clamp(p.x*.5+10,62,368),y:p.y}:{x:p.x,y:p.y}}
+function boardTermPos(p,side){const pos=boardPartPos(p),d=p.vertical?{x:0,y:45}:{x:52,y:0};return {x:pos.x+(side==='a'?-1:1)*d.x,y:pos.y+(side==='a'?-1:1)*d.y}}
+function wirePos(t){const {id,side}=parseTerm(t),part=free.parts.find(p=>p.id===id);return part?boardTermPos(part,side):null}
 function freeAddWire(t){if(free.terminal===t){free.terminal=null;renderFreeLab();return}if(!free.terminal){free.terminal=t;renderFreeLab();return}const first=free.terminal;free.terminal=null;const a=parseTerm(first),b=parseTerm(t);if(a.id===b.id){fireToast('وصل بين قطعتين مختلفتين، مش نفس القطعة');renderFreeLab();return}const exists=free.wires.some(w=>w.includes(first)&&w.includes(t));captureFree();if(exists){free.wires=free.wires.filter(w=>!(w.includes(first)&&w.includes(t)));fireToast('فصلت السلك')}else{free.wires.push([first,t]);fireToast('وصلت السلك ✓')}renderFreeLab();notePredictionChange('free')}
 function freePartSymbol(p,solved){const R=p.type==='resistor'?p.value:p.type==='lamp'?6:p.type==='switch'?(p.closed?.02:Infinity):p.value;const amps=solved?.currents?.[p.id]||0;const glow=p.type==='lamp'?Math.min(1,amps*amps*6/10):0;let body='';const box='<rect class="select-halo" x="-43" y="-26" width="86" height="52" rx="10" fill="#1e4557" stroke="#426f7e" stroke-width="1.5"/>';
 if(p.type==='resistor')body=`${box}<path d="M-40 0l10-10 12 20 12-20 12 20 12-20 12 10" fill="none" stroke="#f6c079" stroke-width="3"/>`;
@@ -281,8 +391,8 @@ else if(p.type==='lamp')body=`${box}<circle cx="0" cy="0" r="18" fill="rgba(250,
 else if(p.type==='switch')body=`${box}<circle cx="-18" cy="7" r="3" fill="#e1eff6"/><circle cx="18" cy="7" r="3" fill="#e1eff6"/><path d="M-18 7L${p.closed?'18 7':'13 -13'}" stroke="${p.closed?'#6de6b5':'#f6bb72'}" stroke-width="3"/>`;
 else if(p.type==='ammeter'||p.type==='voltmeter')body=`${box}<circle cx="0" cy="0" r="18" stroke="#7be2d6" fill="#0e3041" stroke-width="2"/><text x="0" y="7" font-size="19" font-weight="bold" text-anchor="middle" fill="#d1f8f3">${p.type==='ammeter'?'A':'V'}</text>`;
 let label=p.type==='resistor'?`${p.value} Ω`:p.type==='battery'?`${p.value} V`:p.type==='lamp'?`${fmt(Math.abs(amps),2)} A`:p.type==='switch'?(p.closed?'مغلق':'مفتوح'):p.type==='ammeter'?`${fmt(Math.abs(amps),2)} A`: `${fmt(Math.abs(solved?.voltages?.[p.id]||0),2)} V`;
-const orientation=p.vertical?90:0;let shape=`<g data-cid="${p.id}" class="component-shape ${free.selected===p.id?'selected':''}" transform="translate(${p.x} ${p.y})"><g transform="rotate(${orientation})">${body}<path d="M-52 0h9M43 0h9" stroke="#7de3d5" stroke-width="3"/></g><text x="0" y="${p.vertical?66:45}" text-anchor="middle" font-size="13" font-weight="800" fill="#d7e8f0">${typeNames[p.type]} · ${label}</text></g>`;
-for(const end of ['a','b']){const pos=termPosition(p,end),term=p.id+':'+end;shape+=`<g class="terminal" data-term="${term}" tabindex="0" role="button" aria-label="طرف ${end} من ${typeNames[p.type]}"><circle cx="${pos.x}" cy="${pos.y}" r="21" fill="transparent"/><circle cx="${pos.x}" cy="${pos.y}" r="10" fill="${free.terminal===term?'#f9c373':'#1c6170'}" stroke="${free.terminal===term?'#ffffff':'#7de8d8'}" stroke-width="2"/><circle cx="${pos.x}" cy="${pos.y}" r="3" fill="#e0fff8"/></g>`}
+const orientation=p.vertical?90:0,screen=boardPartPos(p);let shape=`<g data-cid="${p.id}" class="component-shape ${free.selected===p.id?'selected':''}" transform="translate(${screen.x} ${screen.y})"><g transform="rotate(${orientation})">${body}<path d="M-52 0h9M43 0h9" stroke="#7de3d5" stroke-width="3"/></g><text x="0" y="${p.vertical?66:45}" text-anchor="middle" font-size="13" font-weight="800" fill="#d7e8f0">${typeNames[p.type]} · ${label}</text></g>`;
+for(const end of ['a','b']){const pos=boardTermPos(p,end),term=p.id+':'+end;shape+=`<g class="terminal" data-term="${term}" tabindex="0" role="button" aria-label="طرف ${end} من ${typeNames[p.type]}"><circle cx="${pos.x}" cy="${pos.y}" r="21" fill="transparent"/><circle cx="${pos.x}" cy="${pos.y}" r="10" fill="${free.terminal===term?'#f9c373':'#1c6170'}" stroke="${free.terminal===term?'#ffffff':'#7de8d8'}" stroke-width="2"/><circle cx="${pos.x}" cy="${pos.y}" r="3" fill="#e0fff8"/></g>`}
 return shape}
 function solveFree(){// Union-find wires, then solve a grounded DC nodal network.
  const roots={};const find=t=>(roots[t]===t?t:roots[t]=find(roots[t]));const union=(a,b)=>{let ra=find(a),rb=find(b);if(ra!==rb)roots[rb]=ra};
@@ -320,11 +430,11 @@ function freeWhyText(s){const p=free.parts.find(p=>p.id===free.selected),single=
 }
 function freeSelectedControls(){const p=free.parts.find(p=>p.id===free.selected);if(!p)return '<p class="small-note">اضغط على قطعة في الرسم علشان تغيّر قيمتها أو تلفها.</p>';let rangeHtml='';if(['battery','resistor'].includes(p.type)){const min=p.type==='battery'?1:1,max=p.type==='battery'?18:40,unit=p.type==='battery'?'V':'Ω';rangeHtml=`<div class="lab-control"><label>${p.type==='battery'?'جهد البطارية':'المقاومة'} <span id="free-value">${p.value} ${unit}</span></label><input aria-label="قيمة القطعة المختارة" id="free-range" type="range" min="${min}" max="${max}" step="1" value="${p.value}"></div>`}
 return `<p class="quiet-line"><strong>القطعة المختارة: ${typeNames[p.type]}</strong></p>${rangeHtml}<div class="experiment-actions"><button class="lab-action" id="freeRotate">↻ لف القطعة</button>${p.type==='switch'?'<button class="lab-action highlight" id="freeToggleSwitch">'+(p.closed?'افتح المفتاح':'اقفل المفتاح')+'</button>':''}<button class="lab-action danger" id="freeDelete">حذف القطعة</button></div>`}
-function freeSVG(s){let g=`<defs><pattern id="dotgrid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#345c6d" opacity=".48"/></pattern></defs><rect x="0" y="0" width="860" height="440" fill="url(#dotgrid)"/>`;
+function freeSVG(s){const compact=compactBoard(),boardWidth=compact?430:860,boardHeight=compact?Math.max(440,...free.parts.map(p=>p.y+75)):440;let g=`<defs><pattern id="dotgrid" width="24" height="24" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#345c6d" opacity=".48"/></pattern></defs><rect x="0" y="0" width="${boardWidth}" height="${boardHeight}" fill="url(#dotgrid)"/>`;
  for(const [a,b] of free.wires){const A=wirePos(a),B=wirePos(b);if(A&&B)g+=`<path class="lab-wire" d="M${A.x},${A.y} L${B.x},${B.y}"/>`}
  for(const p of free.parts)g+=freePartSymbol(p,s);
- if(!free.parts.length)g+=`<g opacity=".8"><rect x="225" y="137" width="410" height="160" rx="19" fill="#1b4354" stroke="#346675" stroke-dasharray="9 7"/><text x="430" y="195" text-anchor="middle" fill="#e9f6f7" font-size="24" font-weight="bold">معملك فاضي لسه</text><text x="430" y="235" text-anchor="middle" fill="#a7c8d2" font-size="16">ضيف بطارية ومقاومة، أو افتح دائرة جاهزة</text></g>`;
- return `<svg id="freeSVG" class="circuit-svg" viewBox="0 0 860 440" role="img" aria-label="مساحة توصيل الدائرة الكهربائية"><title>معمل كهرباء حر</title>${g}</svg>`}
+ if(!free.parts.length)g+=compact?`<g opacity=".9"><rect x="25" y="139" width="380" height="156" rx="19" fill="#1b4354" stroke="#346675" stroke-dasharray="9 7"/><text x="215" y="195" text-anchor="middle" fill="#e9f6f7" font-size="22" font-weight="bold">معملك فاضي لسه</text><text x="215" y="233" text-anchor="middle" fill="#a7c8d2" font-size="14">ضيف قطعة أو ابدأ بدائرة جاهزة</text></g>`:`<g opacity=".8"><rect x="225" y="137" width="410" height="160" rx="19" fill="#1b4354" stroke="#346675" stroke-dasharray="9 7"/><text x="430" y="195" text-anchor="middle" fill="#e9f6f7" font-size="24" font-weight="bold">معملك فاضي لسه</text><text x="430" y="235" text-anchor="middle" fill="#a7c8d2" font-size="16">ضيف بطارية ومقاومة، أو افتح دائرة جاهزة</text></g>`;
+ return `<svg id="freeSVG" class="circuit-svg" viewBox="0 0 ${boardWidth} ${boardHeight}" role="img" aria-label="مساحة توصيل الدائرة الكهربائية"><title>معمل كهرباء حر</title>${g}</svg>`}
 function renderFreeLabPage(){const root=$('extraView');root.innerHTML=`<div class="breadcrumb"><button data-go-home>جميع المعامل</button><span> / </span><span>المعمل الحر</span></div><header class="extra-header"><div><span class="eyebrow">FREE LAB · تجربة مفتوحة</span><h1>ابنِ دائرتك بنفسك</h1><p>ضيف القطع، اسحبها للمكان المناسب، واضغط طرفين علشان توصل بينهم سلك. القياسات محسوبة من التوصيل الفعلي.</p></div><button class="lab-action" data-go-home>← العودة</button></header><div id="extraPrediction">${predictionMarkup('free',extraPredictionQuestions.free)}</div><div class="extra-columns"><section class="extra-panel"><div class="lab-label">أدوات المعمل · اضغط لإضافة قطعة</div><div id="freeTools" class="tool-palette">${Object.keys(typeNames).map(t=>`<button class="component-add" type="button" data-addpart="${t}"><span>${toolIcons[t]}</span>${typeNames[t]}</button>`).join('')}</div><div class="experiment-actions"><button id="freeSample" class="lab-action highlight">ابدأ بدائرة جاهزة</button><button id="freeUndo" class="lab-action">↶ تراجع</button><button id="freeRedo" class="lab-action">↷ إعادة</button><button id="freeClear" class="lab-action danger">مسح الكل</button></div><div class="lab-canvas-shell"><div class="lab-canvas-top">FIZYA · DC CIRCUIT LAB</div><div id="freeBoard"></div><div class="lab-canvas-bottom">اضغط نقطتين للتوصيل · اسحب قطعة لتحريكها</div></div><div id="freeStatus" role="status" aria-live="polite"></div><div id="freeMetrics" class="lab-metrics"></div><p class="small-note">نموذج كهربائي مبسط: بطارية واحدة بمقاومة داخلية 0.2Ω، لمبة أومية 6Ω، والقياسات تقريبية. لا تُجرِّب توصيلات القصر على بطاريات حقيقية.</p></section><aside class="extra-aside"><section class="extra-panel"><h3>القطعة المختارة</h3><div id="freeSelected"></div></section><section class="extra-panel"><h3>افهم اللي حصل</h3><button id="freeWhyBtn" class="explain-toggle" aria-expanded="false">💡 Why? ليه ده حصل؟ +</button><div id="freeWhyBody" class="why-content" hidden></div></section><section class="extra-panel"><h3>احفظ تجربتك</h3><p class="quiet-line">احفظ الدائرة على نفس المتصفح أو نزل تقرير قيمها بصيغة JSON.</p><div class="experiment-actions"><button id="freeSave" class="lab-action">حفظ</button><button id="freeLoad" class="lab-action">استرجاع</button><button id="freeExport" class="lab-action">تنزيل النتائج</button></div></section></aside></div>`;renderFreeLab()}
 function renderFreeLab(){if(specialMode!=='free'||!$('freeBoard'))return;const s=solveFree();$('freeBoard').innerHTML=freeSVG(s);$('freeMetrics').innerHTML=`<div class="lab-metric"><small>جهد المصدر</small><strong>${fmt(s.battery||0,1)} V</strong></div><div class="lab-metric"><small>تيار البطارية</small><strong>${fmt(s.batteryCurrent||0,2)} A</strong></div><div class="lab-metric"><small>جهد الأطراف</small><strong>${fmt(s.terminal||0,2)} V</strong></div>`;
 $('freeSelected').innerHTML=freeSelectedControls();$('freeStatus').innerHTML=s.short?'<div class="warning-strip">⚠️ الدائرة فيها قصر أو تيار كبير جدًا. افصل السلك وعدّل التوصيل.</div>':!s.valid?`<div class="warning-strip">${s.message}</div>`:(Math.abs(s.batteryCurrent||0)<.001?'<p class="quiet-line">مفيش تيار في مسار حمل مكتمل لسه. وصل المسار علشان تشوف النتيجة.</p>':'<div class="success-strip">✓ فيه مسار مغلق، والقياسات بتتحدث حسب التوصيل.</div>');
@@ -342,10 +452,10 @@ function freeControlAction(target){if(target.matches('[data-addpart]'))return ad
  if(target.id==='freeExport'){const data={project:'FIZYA',model:'DC linear circuit, battery internal R=0.2Ω',parts:free.parts,wires:free.wires,measurements:solveFree()};delete data.measurements.root;const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='fizya-experiment.json';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);fireToast('اتحمّل ملف نتائج التجربة');return}
  if(target.id==='freeWhyBtn'){let b=$('freeWhyBody');b.hidden=!b.hidden;target.textContent=b.hidden?'💡 Why? ليه ده حصل؟ +':'💡 اخفي التفسير −';target.setAttribute('aria-expanded',String(!b.hidden));b.textContent=freeWhyText(solveFree());return}
 }
-function pointFromEvent(evt,svg){const rect=svg.getBoundingClientRect();return{x:(evt.clientX-rect.left)/rect.width*860,y:(evt.clientY-rect.top)/rect.height*440}}
-function freePointerDown(e){const partEl=e.target.closest('[data-cid]');if(!partEl||e.target.closest('[data-term]'))return;const p=free.parts.find(p=>p.id===partEl.dataset.cid);if(!p)return;free.selected=p.id;const pt=pointFromEvent(e,e.currentTarget);freeDrag={id:p.id,start:pt,origin:{x:p.x,y:p.y},moved:false,el:partEl};try{e.currentTarget.setPointerCapture(e.pointerId)}catch(err){};}
-function freePointerMove(e){if(!freeDrag)return;const svg=e.currentTarget;const p=pointFromEvent(e,svg);const dx=p.x-freeDrag.start.x,dy=p.y-freeDrag.start.y;if(Math.abs(dx)+Math.abs(dy)>5)freeDrag.moved=true;if(!freeDrag.moved)return;freeDrag.el.setAttribute('transform',`translate(${clamp(freeDrag.origin.x+dx,60,800)} ${clamp(freeDrag.origin.y+dy,62,372)})`)}
-function freePointerUp(e){if(!freeDrag)return;const d=freeDrag,pt=pointFromEvent(e,e.currentTarget);freeDrag=null;if(d.moved){const p=free.parts.find(x=>x.id===d.id);if(p){captureFree();p.x=Math.round(clamp(d.origin.x+pt.x-d.start.x,60,800));p.y=Math.round(clamp(d.origin.y+pt.y-d.start.y,62,372));notePredictionChange('free')}}renderFreeLab()}
+function pointFromEvent(evt,svg){const pt=svg.createSVGPoint();pt.x=evt.clientX;pt.y=evt.clientY;const ctm=svg.getScreenCTM();if(!ctm)return{x:0,y:0};const out=pt.matrixTransform(ctm.inverse());return{x:out.x,y:out.y}}
+function freePointerDown(e){const partEl=e.target.closest('[data-cid]');if(!partEl||e.target.closest('[data-term]'))return;const p=free.parts.find(p=>p.id===partEl.dataset.cid);if(!p)return;free.selected=p.id;const pt=pointFromEvent(e,e.currentTarget);freeDrag={id:p.id,start:pt,origin:{x:p.x,y:p.y},display:boardPartPos(p),moved:false,el:partEl};try{e.currentTarget.setPointerCapture(e.pointerId)}catch(err){};}
+function freePointerMove(e){if(!freeDrag)return;const svg=e.currentTarget;const p=pointFromEvent(e,svg);const dx=p.x-freeDrag.start.x,dy=p.y-freeDrag.start.y;if(Math.abs(dx)+Math.abs(dy)>5)freeDrag.moved=true;if(!freeDrag.moved)return;freeDrag.el.setAttribute('transform',`translate(${clamp(freeDrag.display.x+dx,compactBoard()?62:60,compactBoard()?368:800)} ${clamp(freeDrag.display.y+dy,62,372)})`)}
+function freePointerUp(e){if(!freeDrag)return;const d=freeDrag,pt=pointFromEvent(e,e.currentTarget);freeDrag=null;if(d.moved){const p=free.parts.find(x=>x.id===d.id);if(p){captureFree();p.x=Math.round(clamp(d.origin.x+(pt.x-d.start.x)*(compactBoard()?2:1),60,800));p.y=Math.round(clamp(d.origin.y+pt.y-d.start.y,62,compactBoard()?Math.max(372,...free.parts.map(p=>p.y+75)):372));notePredictionChange('free')}}renderFreeLab()}
 
 // 3D magnetic lab: projected 3D geometry, with a numerical Biot-Savart field approximation.
 let mag={current:3,turns:250,direction:1,azimuth:.65,pitch:.30,zoom:1,showField:true,drag:null};let magneticWhy=false;
@@ -363,8 +473,8 @@ function renderMagCanvas(){const canvas=$('magCanvas');if(!canvas||specialMode!=
  let pts=[];const n=250;for(let i=0;i<=n;i++){const t=i/n*(2*Math.PI*9);pts.push([(-DISPLAY_LENGTH/2+DISPLAY_LENGTH*i/n),DISPLAY_RADIUS*Math.cos(t),DISPLAY_RADIUS*Math.sin(t)])}
  ctx.shadowBlur=12;ctx.shadowColor='rgba(239,183,111,.24)';ctx.strokeStyle='#f4bf79';ctx.lineWidth=2.7;ctx.beginPath();pts.forEach((p,i)=>{const q=projectMag(p,w,h);if(!i)ctx.moveTo(q[0],q[1]);else ctx.lineTo(q[0],q[1])});ctx.stroke();ctx.shadowBlur=0;
  const coreB=vector3B([0,0,0]);const direction=Math.sign(coreB[0])||1;drawArrow(ctx,projectMag([-1.43*direction,0,0],w,h),projectMag([1.43*direction,0,0],w,h),'#f6cf83',3);
- const label=projectMag([0,0,0],w,h);ctx.fillStyle='#e7fbf5';ctx.font='bold 13px Tahoma';ctx.fillText('المجال عند المركز',label[0]-42,label[1]+35);
- ctx.fillStyle='#aecfdb';ctx.font='12px Tahoma';ctx.fillText('اسحب للتدوير · كبّر بإصبعين أو عجلة الماوس',15,h-17)
+ const label=projectMag([0,0,0],w,h);ctx.fillStyle='#e7fbf5';ctx.font='bold 13px Tahoma';ctx.fillText(uiLang==='en'?'Field at center':'المجال عند المركز',label[0]-42,label[1]+35);
+ ctx.fillStyle='#aecfdb';ctx.font='12px Tahoma';ctx.fillText(uiLang==='en'?'Drag to rotate · Pinch or scroll to zoom':'اسحب للتدوير · كبّر بإصبعين أو عجلة الماوس',15,h-17)
 }
 function magReading(){const b=vector3B([0,0,0]),center=Math.abs(b[0])*1000;return{center,sign:Math.sign(b[0]),B:b}}
 function magWhyText(){const m=magReading();return `ده ملف لولبي في نموذج ثلاثي الأبعاد. اتجاه السهم الذهبي بيتحدد بقاعدة اليد اليمنى. عند المركز المجال المحسوب تقريبًا ${fmt(m.center,2)} mT، واتجاهه ${m.sign>0?'على المحور الموجب':'على المحور السالب'}. المجال محسوب عدديًا بتقريب قانون بيو-سافار على 9 حلقات وقطر وطول ثابتين؛ الأسهم الخضراء عينات لاتجاه المجال وليست مسارات جسيمات. زيادة التيار أو عدد اللفات تزود المجال، وعكس التيار يعكسه.`}
@@ -410,7 +520,357 @@ function bindExtraEvents(){document.addEventListener('click',e=>{
  $('welcomeReopen').addEventListener('click',()=>{$('welcomeOverlay').hidden=false;$('welcomeStart').focus()});
 }
 
+
+/* FIZYA v3: complete UI settings + bilingual learning interface */
+let uiLang='ar',uiTheme='light';
+const enLessons = [{"title": "Electric Current & Ohm’s Law", "short": "Connect a circuit and light a bulb", "desc": "Explore voltage, current and resistance by building your own circuit.", "sub": "Connect components, close the switch and vary voltage and resistance to see the effect.", "explain": "For an ohmic circuit, current equals voltage divided by resistance. At constant resistance, more voltage means more current; more resistance means less current.", "task": "Connect all four wires, close the switch and adjust the current to exactly 2.00 A.", "hint": "Tap two terminals to make a wire. Once connected, try 8 V with a 4 Ω resistor."}, {"title": "Connecting Resistors", "short": "Series or parallel?", "desc": "Compare equivalent resistance and branch current for different connections.", "sub": "Use the same resistors in series and parallel and compare the results.", "explain": "In series, the same current passes through all resistors and their resistances add. In parallel, every branch has the same voltage and the equivalent resistance is smaller than the smallest resistor.", "task": "Use two 6 Ω resistors to make an equivalent resistance of 3 Ω.", "hint": "Two identical 6 Ω resistors in parallel have an equivalent resistance of 3 Ω."}, {"title": "Ohm’s Law for a Closed Circuit", "short": "Inside the battery", "desc": "See how internal battery resistance affects terminal voltage.", "sub": "Change the external load and compare the current and battery terminal voltage.", "explain": "Real batteries have internal resistance r. When current flows, part of the EMF is lost internally, so terminal voltage under load is ℰ − Ir.", "task": "A 12 V battery has an internal resistance of 2 Ω. Adjust the load until terminal voltage is 9.00 V.", "hint": "A 3 V internal drop means I = 3/2 = 1.5 A, so R = 9/1.5 = 6 Ω."}, {"title": "Kirchhoff’s Laws", "short": "Solve the current puzzle", "desc": "Discover current conservation at a junction and voltage conservation in loops.", "sub": "Change two branch resistors and calculate the unknown current using Kirchhoff’s junction law.", "explain": "At any junction, total current entering equals total current leaving. Around any closed loop, the algebraic sum of potential changes is zero.", "task": "Calculate the current in the second parallel branch and enter its value in amperes.", "hint": "Parallel branches have the same voltage: I₂ = V/R₂. Or use I₂ = Itotal − I₁."}, {"title": "Magnetic Effect of Current", "short": "Move the compass", "desc": "Explore how a current-carrying wire changes the direction of a nearby compass.", "sub": "Adjust the wire current, direction and compass distance.", "explain": "A long straight current-carrying wire generates circular magnetic field lines. The field increases with current and decreases with distance from the wire.", "task": "Deflect the compass more than 20° to the right by adjusting current and distance.", "hint": "Set a positive current direction, increase current or move the compass closer."}, {"title": "Magnetic Field Around Coils", "short": "Build an electromagnet", "desc": "Change coil turns and current to explore magnetic field strength.", "sub": "Adjust number of turns, coil length and current and observe the field.", "explain": "For an approximately long solenoid, field strength increases with turns and current and decreases with coil length. Reversing current swaps the poles.", "task": "Make the field at least 5 mT and place the north pole on the right.", "hint": "Increase coil turns or current, shorten the coil, and select the positive current direction."}, {"title": "Magnetic Force & Torque", "short": "Move a wire and motor", "desc": "Explore magnetic force on a wire and torque on a coil.", "sub": "Change current, field, angle and conductor length.", "explain": "The force on a current-carrying wire depends on current, conductor length, field strength and angle. Coil torque also depends on turns and area; for torque, θ is between the coil normal and the field.", "task": "In wire mode, reach a magnetic force of at least 2 N.", "hint": "Increase B, I or L. Force is greatest when wire and field are perpendicular (90°)."}, {"title": "Electrical Measuring Instruments", "short": "Choose the right instrument", "desc": "Learn where to connect an ammeter and voltmeter; convert a galvanometer.", "sub": "Choose the right meter, connect it and read the result.", "explain": "An ammeter measures current in series; a voltmeter measures voltage in parallel. A galvanometer’s range can be extended with an appropriate shunt or series multiplier.", "task": "Select an ammeter and connect it in series to measure the current through a 6 Ω resistor supplied by 12 V.", "hint": "Connect the ammeter in series; the expected reading is 2 A."}];
+const enChapters=['Electric Current and Ohm’s Law','Magnetic Effects of Current and Measuring Instruments'];
+const englishDict = {"فِيزيا": "FIZYA", "اتعلمها بالتجربة": "Learn through experiments", "معمل الكهرباء والمغناطيسية": "Electricity & Magnetism Lab", "· الوحدة الأولى": "· Unit One", "🔌 المعمل الحر": "🔌 Free Lab", "🧲 مغناطيسية 3D": "🧲 3D Magnetic Lab", "رحلتك العلمية": "Your learning journey", "اختار المعمل": "Choose a lab", "كل درس = تجربة واحدة مركزة، وتحدي تطبقه بنفسك.": "One focused experiment and a practical challenge per lesson.", "المعمل الحر": "Free Lab", "ركّب أي دائرة وجرّب": "Build and explore circuits", "مغناطيسية 3D": "3D Magnetism", "مجال تفاعلي ثلاثي الأبعاد": "Explore magnetic fields in 3D", "جرب قبل ما تحفظ": "Experiment before you memorize", "كل تغيير ليه نتيجة تقدر تشوفها.": "See the result of every change.", "⚡ وحدة الكهرباء والمغناطيسية": "⚡ Electricity & Magnetism Unit", "الفيزياء مش حفظ.": "Physics isn't memorization.", "الفيزياء تجربة.": "Physics is an experiment.", "٨ معامل تفاعلية. جرّب، غيّر، قِس، واكتشف القانون بنفسك. من غير زحمة أو شرح طويل قبل ما تفهم الفكرة.": "Eight interactive labs. Build, measure and discover physics at your own pace.", "ابدأ أول تجربة": "Start your first experiment", "كمّل تجربتك": "Continue learning", "المعامل التفاعلية": "Interactive laboratories", "اختار درس وابدأ بنفسك": "Choose a lesson and start exploring", "أنجزت": "Completed", "من ٨": "out of 8", "المعمل الحر للكهرباء": "Free Circuit Lab", "ابنِ دائرتك ووصّل الأسلاك وقِس بنفسك": "Build your own circuit and take measurements", "معمل المغناطيسية 3D": "3D Magnetic Field Lab", "لفّ المشهد وحرك المجال وشوفه من كل زاوية": "Rotate the field and explore it from every angle", "افتح التجربة ←": "Open experiment →", "فِيزيا — تجربة تعليمية تفاعلية": "FIZYA — Interactive learning", "القياسات مبنية على نماذج فيزيائية موضّحة في كل درس.": "Measurements use the educational physics models explained in each lesson.", "جميع المعامل": "All labs", "← العودة": "← Back", "الفصل الأول": "Chapter One", "الفصل الثاني": "Chapter Two", "تجربة تفاعلية": "Interactive experiment", "توقع • جرّب • افهم": "PREDICT • TEST • LEARN", "اختار الإجابة اللي تتوقعها، وبعد كده جرّب.": "Choose your prediction, then test it in the experiment.", "اختار توقعك قبل ما تعمل التجربة.": "Make a prediction before running the experiment.", "هيقل": "Decrease", "هيزود": "Increase", "هيزيد": "Increase", "مش هيتغير": "Stay the same", "هتقل": "Decrease", "هتزيد": "Increase", "هتفضل ثابتة": "Stay the same", "هيعكس": "Reverse direction", "هيفضل": "Stay the same", "هيختفي": "Disappear", "هيزود من غير تغيير اتجاهه": "Increase without reversing", "جرب بنفسك": "Try it yourself", "إعادة التجربة": "Reset experiment", "غيّر وشوف الفرق": "Change & observe", "تتحدث مباشرة": "Updates live", "مهمتك النهارده": "YOUR MISSION", "التحدي العملي": "Practical challenge", "جرب تغيّر الأدوات، وراقب النتيجة لحد ما تحقق المهمة.": "Adjust the controls and observe the result until you complete the challenge.", "محتاج تلميح؟": "Need a hint?", "افهم اللي حصل": "Understand the result", "العلم ورا التجربة": "The physics behind it", "💡 ليه ده حصل؟ +": "💡 Why did this happen? +", "💡 ليه ده حصل؟ −": "💡 Why did this happen? −", "💡 اخفي التفسير −": "💡 Hide explanation −", "💡 Why? ليه ده حصل؟ +": "💡 Why did this happen? +", "💡 Why? ليه ده حصل؟ −": "💡 Why did this happen? −", "مستعد تكمل؟": "Ready for more?", "التجربة أهم من الإجابة. غيّر قيمة واحدة كل مرة ولاحظ اللي بيحصل.": "The experiment matters more than the answer. Change one variable at a time.", "المعمل التالي": "Next lab", "FREE LAB · تجربة مفتوحة": "FREE LAB · Open experiment", "ابنِ دائرتك بنفسك": "Build your own circuit", "ضيف القطع، اسحبها للمكان المناسب، واضغط طرفين علشان توصل بينهم سلك. القياسات محسوبة من التوصيل الفعلي.": "Add components, drag them into place, then tap two terminals to connect a wire. Readings follow your actual circuit.", "لو ضاعفنا قيمة مقاومة في دائرة بسيطة، مع ثبات جهد البطارية، التيار هيعمل إيه؟": "If we double resistance while keeping battery voltage fixed, what happens to current?", "أدوات المعمل · اضغط لإضافة قطعة": "LAB TOOLS · Tap a component to add it", "بطارية": "Battery", "مقاومة": "Resistor", "لمبة": "Bulb", "مفتاح": "Switch", "أميتر": "Ammeter", "فولتميتر": "Voltmeter", "ابدأ بدائرة جاهزة": "Load sample circuit", "↶ تراجع": "↶ Undo", "↷ إعادة": "↷ Redo", "مسح الكل": "Clear all", "معمل كهرباء حر": "Free Circuit Lab", "معملك فاضي لسه": "Your workbench is empty", "ضيف قطعة أو ابدأ بدائرة جاهزة": "Add components or load a sample", "ضيف بطارية ومقاومة، أو افتح دائرة جاهزة": "Add a battery and resistor or load a sample", "اضغط نقطتين للتوصيل · اسحب قطعة لتحريكها": "Tap two terminals to connect · Drag a component to move it", "ضيف بطارية علشان تبدأ القياسات.": "Add a battery to start measuring.", "جهد المصدر": "Source voltage", "تيار البطارية": "Battery current", "جهد الأطراف": "Terminal voltage", "نموذج كهربائي مبسط: بطارية واحدة بمقاومة داخلية 0.2Ω، لمبة أومية 6Ω، والقياسات تقريبية. لا تُجرِّب توصيلات القصر على بطاريات حقيقية.": "Simplified model: one battery with 0.2 Ω internal resistance and a 6 Ω ohmic lamp. Measurements are approximate. Never short-circuit real batteries.", "القطعة المختارة": "Selected component", "اضغط على قطعة في الرسم علشان تغيّر قيمتها أو تلفها.": "Select a component on the workbench to edit or rotate it.", "احفظ تجربتك": "Save your experiment", "احفظ الدائرة على نفس المتصفح أو نزل تقرير قيمها بصيغة JSON.": "Save in this browser or export your measurements as JSON.", "حفظ": "Save", "استرجاع": "Load", "تنزيل النتائج": "Export results", "القطعة المختارة: بطارية": "Selected: Battery", "القطعة المختارة: مقاومة": "Selected: Resistor", "القطعة المختارة: لمبة": "Selected: Bulb", "القطعة المختارة: مفتاح": "Selected: Switch", "القطعة المختارة: أميتر": "Selected: Ammeter", "القطعة المختارة: فولتميتر": "Selected: Voltmeter", "جهد البطارية": "Battery voltage", "المقاومة": "Resistance", "↻ لف القطعة": "↻ Rotate", "افتح المفتاح": "Open switch", "اقفل المفتاح": "Close switch", "حذف القطعة": "Delete component", "مغلق": "Closed", "مفتوح": "Open", "مفيش تيار في مسار حمل مكتمل لسه. وصل المسار علشان تشوف النتيجة.": "No load current yet. Complete a circuit to see measurements.", "✓ فيه مسار مغلق، والقياسات بتتحدث حسب التوصيل.": "✓ Closed path detected. Readings update with connections.", "⚠️ الدائرة فيها قصر أو تيار كبير جدًا. افصل السلك وعدّل التوصيل.": "⚠️ Short circuit or excessive current. Disconnect a wire and fix the circuit.", "شوف المجال من أي زاوية": "Explore the field in 3D", "لفّ الملف بإصبعك، وغيّر التيار وعدد اللفات. اتجاه الأسهم وطولها بيعبروا عن المجال في نقاط مختلفة.": "Rotate the coil with your finger. Adjust current and turns; arrows show the magnetic field direction and relative strength.", "لو عكسنا اتجاه التيار في الملف، اتجاه المجال عند مركزه هيعمل إيه؟": "What happens to the central magnetic field if the coil current is reversed?", "ثلاثي الأبعاد • منظور قابل للدوران": "3D · Interactive view", "المجال عند المركز": "Field at center", "الاتجاه": "Direction", "→ موجب": "→ Positive", "عدد اللفات": "Number of turns", "إعادة زاوية العرض": "Reset view", "من أعلى": "Top view", "من الجانب": "Side view", "إظهار/إخفاء الأسهم": "Show/hide arrows", "المشهد بيستخدم إسقاطًا ثلاثي الأبعاد قابلًا للدوران، والمجال محسوب عدديًا بتقريب بيو-سافار. تقدر تستخدمه من غير إنترنت أو تحميل مكتبات 3D.": "The rotatable 3D projection uses a numerical Biot–Savart approximation. It works offline without external 3D libraries.", "غيّر التجربة": "Adjust the experiment", "شدة التيار": "Current", "اتجاه التيار": "Current direction", "موجب →": "Positive →", "عكس ←": "Reverse ←", "التكبير": "Zoom", "ليه المجال اتغير؟": "Why did the field change?", "تحدي سريع": "Quick challenge", "اقلب اتجاه المجال": "Reverse the field", "اعكس اتجاه التيار، وراقب السهم الذهبي عند مركز الملف. هل بيغير اتجاهه؟": "Reverse the current and watch the gold arrow at the coil's center. Does its direction reverse?", "شوفه من أعلى": "View from above", "انحراف البوصلة محسوب في نموذج مبسط مع مجال مرجعي ثابت عمودي على مجال السلك.": "Compass deflection uses a simplified model with a fixed reference field perpendicular to the wire's field.", "الرسمة توضيحية، والقيمة المحسوبة تعتمد تقريب الملف اللولبي الطويل وقلبه الهوائي.": "Diagram is illustrative; calculation assumes an ideal long air-core solenoid.", "السهم الأخضر يوضح مقدار القوة بشكل تمثيلي. اتجاه القوة الحقيقي عمودي على التيار والمجال.": "The green bar represents force magnitude; actual force is perpendicular to both current and magnetic field.", "القيمة المجهولة تتحدد من قانون أوم أو قانون العقدة. جرّب تغيّر المقاومات واحسب تاني.": "Find the unknown current using Ohm's law or the junction rule. Change the resistors and try again.", "الخط المتقطع عند البطارية يرمز للمقاومة الداخلية؛ النموذج يفترض مصدرًا ثابت القوة الدافعة.": "The dashed element inside the battery represents internal resistance; EMF is assumed constant.", "جرّب نفس قيم المقاومات في التوالي ثم في التوازي، وقارن المقاومة المكافئة والتيار.": "Compare equivalent resistance and current using the same two resistors in series and parallel.", "انقر نقطة بداية ونقطة نهاية لتوصيل السلك. اضغط مفتاح التشغيل أسفل الرسم للتحكم في الدائرة.": "Tap two terminals to connect a wire. Use the switch below to control the circuit.", "مفيش تيار في دائرة مفتوحة. أكمل التوصيلات واقفل المفتاح، وبعدها راقب القراءة.": "No current flows through an open circuit. Connect the wires and close the switch to see the reading.", "توصيل توالي: مسار واحد للتيار": "Series circuit: one current path", "توصيل توازي: فروع متعددة للتيار": "Parallel circuit: multiple paths", "داخل البطارية": "Inside battery", "الجهد على الحمل": "Load voltage", "توصيل توالي": "Series connection", "طول السلك L": "Wire length L", "شدة المجال B": "Field strength B", "شدة التيار I": "Current I", "الزاوية θ": "Angle θ", "التيار": "Current", "فرق الجهد": "Voltage", "حالة الدائرة": "Circuit status", "المقاومة المكافئة": "Equivalent resistance", "التيار الكلي": "Total current", "الفقد الداخلي": "Internal voltage drop", "القطب اليمين": "Right pole", "المسافة": "Distance", "مجال السلك": "Wire's field", "زاوية الانحراف": "Deflection angle", "القوة المغناطيسية": "Magnetic force", "طريقة توصيل المقاومتين": "Resistor connection", "توالي (Series)": "Series", "توازي (Parallel)": "Parallel", "المقاومة الأولى R₁": "First resistor R₁", "المقاومة الثانية R₂": "Second resistor R₂", "مقاومة الحمل الخارجي R": "Load resistance R", "المقاومة الداخلية r": "Internal resistance r", "القوة الدافعة ℰ": "Electromotive force ℰ", "مقاومة الفرع الأول": "Branch 1 resistance", "مقاومة الفرع الثاني": "Branch 2 resistance", "كم يساوي التيار I₂؟ (بالأمبير)": "What is current I₂ (in amperes)?", "تحقق": "Check", "احسب التيار بنفسك ثم اضغط تحقق.": "Calculate the current, then press Check.", "تيار الفرع الأول": "Branch 1 current", "تيار الفرع الثاني": "Branch 2 current", "للداخل ⊗": "Into screen ⊗", "للخارج ⊙": "Out of screen ⊙", "بعد البوصلة عن السلك": "Compass distance from wire", "اتجاه التيار في الملف": "Current direction in coil", "عكس الاتجاه": "Reverse direction", "الاتجاه الموجب": "Positive direction", "عدد اللفات N": "Turns N", "طول الملف L": "Coil length L", "اختار التجربة": "Choose experiment", "القوة على سلك": "Force on wire", "عزم ملف (موتور)": "Coil torque (motor)", "الزاوية": "Angle", "أجهزة القياس": "Measuring instruments", "تحدي": "Challenge", "مفيش تغيير ترجع عنه": "Nothing to undo", "مفيش تغيير تعمله تاني": "Nothing to redo", "تم حفظ التجربة على جهازك ✓": "Experiment saved on this device ✓", "تم استرجاع التجربة ✓": "Experiment restored ✓", "مفيش تجربة محفوظة لسه": "No saved experiment found", "المتصفح منع حفظ البيانات": "Browser blocked local storage", "اتحمّل ملف نتائج التجربة": "Experiment results downloaded", "دائرة جاهزة: غيّر المقاومة وراقب التيار": "Sample circuit loaded: adjust resistance and watch current", "النسخة دي بتدعم بطارية واحدة في الدائرة": "This version supports one battery per circuit", "حد المعمل ١١ قطعة علشان يفضل واضح": "Maximum 11 components to keep the lab clear", "وصل بين قطعتين مختلفتين، مش نفس القطعة": "Connect two different components, not two terminals of the same one", "وصلت السلك ✓": "Wire connected ✓", "فصلت السلك": "Wire disconnected"};
+Object.assign(englishDict,{"I₂ = ؟":"I₂ = ?","؟":"?","لو زوّدنا المقاومة وثبّتنا الجهد، التيار هيعمل إيه?": "If resistance increases at constant voltage, what happens to current?", "لو زوّدنا المقاومة وثبّتنا الجهد، التيار هيعمل إيه؟": "If resistance increases at constant voltage, what happens to current?", "لو وصلنا مقاومتين متساويتين على التوازي بدل التوالي، المقاومة المكافئة هتعمل إيه؟": "What happens to equivalent resistance if we connect two equal resistors in parallel instead of series?", "لو زوّدنا مقاومة الحمل الخارجي وثبّتْنا البطارية، الجهد الطرفي هيعمل إيه؟": "What happens to terminal voltage if external load resistance increases?", "في عقدة كهربائية، لو التيار الداخل 8 أمبير والخارج في فرع 3 أمبير، الفرع الثاني كام؟": "A junction receives 8 A and 3 A leaves one branch. How much goes into the second branch?", "لو عكسنا اتجاه التيار في السلك، اتجاه المجال حوله؟": "What happens to the magnetic field direction if wire current is reversed?", "لو زوّدنا عدد لفات الملف وثبّتنا باقي المتغيرات، المجال داخله؟": "What happens to field strength if the number of turns increases and other factors remain fixed?", "القوة على السلك هتكون أكبر لما الزاوية بين السلك والمجال تبقى؟": "At what angle between a wire and its magnetic field is force greatest?", "الفولتميتر المثالي بيتوصل إزاي لقياس جهد المقاومة؟": "How should an ideal voltmeter be connected to measure voltage across a resistor?", "على التوازي": "In parallel", "على التوالي": "In series", "مكان البطارية": "In place of the battery", "اضغط نقطتين متتاليتين عشان توصل سلك": "Tap two terminals to connect a wire", "اضغط المفتاح من تحت": "Tap the switch below", "الدائرة مفتوحة · وصل الأسلاك والمفتاح": "Circuit open · Connect wires and close the switch", "فرق الجهد (V)": "Voltage (V)", "المقاومة (R)": "Resistance (R)", "الجهد الطرفي": "Terminal voltage", "شدة المجال": "Field strength", "القطب اليمين": "Right-hand pole", "اختار جهاز القياس ومكانه": "Choose a meter and its connection", "نوع النشاط": "Activity", "اختبار القياس": "Meter challenge", "تحويل الجلفانومتر": "Convert galvanometer", "الجهاز الذي ستستخدمه": "Meter to use", "جلفانومتر G": "Galvanometer G", "مكان التوصيل": "Connection position", "التيار الحقيقي": "Actual current", "اختيارك": "Your choice", "العودة للمعامل": "Back to laboratories", "وضع الاستكشاف: غيّر زاوية الملف والقيم وشوف تأثيرها على عزم الدوران. ارجع لوضع السلك لإنهاء مهمة الدرس.": "Exploration mode: change coil angle and settings to see how torque changes. Return to wire mode to complete the lesson.", "عدد لفات الملف": "Coil turns", "فرق جهد المصدر": "Source voltage", "الموصل": "Conductor", "المجال المغناطيسي": "Magnetic field"});
+for(let i=0;i<8;i++)for(const k of ['title','short','desc','sub','explain','task','hint'])englishDict[lessons[i][k]]=enLessons[i][k];
+for(let c=0;c<2;c++){
+ englishDict[`الفصل ${c+1} — ${chapters[c]}`]=`Chapter ${c+1} — ${enChapters[c]}`;
+ englishDict[`الفصل ${c+1} · ${chapters[c]}`]=`Chapter ${c+1} · ${enChapters[c]}`;
+}
+for(let i=1;i<=4;i++)englishDict[`الدرس ${i} من ٤`]=`Lesson ${i} of 4`;
+for(let i=0;i<9;i++)englishDict[`${i} / ٨`]=`${i} / 8`;
+const enPrediction={
+ free:'If resistance doubles while the battery voltage is held constant, what happens to the current?',
+ magnetic:'If the coil current is reversed, what happens to its central magnetic field?',
+ lesson:[
+ 'If resistance increases at constant voltage, what happens to the current?',
+ 'If equal resistors are connected in parallel instead of series, what happens to equivalent resistance?',
+ 'If external load resistance increases, what happens to the battery’s terminal voltage?',
+ 'A junction receives 8 A and 3 A leaves through one branch. How much leaves through the other?',
+ 'What happens to the field around the wire when its current is reversed?',
+ 'If coil turns increase at constant current and length, what happens to its field?',
+ 'At what angle between wire and magnetic field is the force greatest?',
+ 'How should an ammeter be connected to measure circuit current?'
+ ]
+};
+const enStages=[
+ 'In an open circuit, current is zero. Connect the wires and close the switch to see a reading.',
+ 'In series, the same current passes through both resistors; in parallel, each branch has the same voltage.',
+ 'Current flows through both load resistance and internal battery resistance. Terminal voltage is EMF minus the internal drop.',
+ 'At the junction, total current splits into two branches. Apply Iₜₒₜₐₗ = I₁ + I₂.',
+ 'The wire creates circular field lines. Current direction sets field direction, and field strength decreases with distance.',
+ 'More turns or more current creates a stronger field; reversing current reverses the poles.',
+ 'Magnetic force depends on B, I, length and sin θ. For coil torque, use τ = NBIA sin θ.',
+ 'Ammeters connect in series and voltmeters in parallel. Meters need the right connection and measurement range.'
+];
+function translateLiveArabic(src,node){
+ const trimmed=src.trim();if(!trimmed)return src;
+ let replacement=englishDict[trimmed];
+ if(replacement===undefined){
+  if(node.parentElement?.closest('#dynamicInsight'))replacement=enStages[active]||'';
+  else if(node.parentElement?.closest('#freeWhyBody')){const v=solveFree();replacement=`This virtual circuit uses a battery with 0.2 Ω internal resistance. Source voltage: ${fmt(v.battery||0,1)} V; battery current: ${fmt(v.batteryCurrent||0,2)} A; terminal voltage: ${fmt(v.terminal||0,2)} V. An open circuit has no load current; resistance and connections determine current in a closed circuit.`;}
+  else if(node.parentElement?.closest('#magWhyBody')){const v=magReading();replacement=`The gold arrow follows the right-hand rule. Reversing current reverses the field. At the center, the approximate field is ${fmt(v.center,2)} mT, calculated using a Biot–Savart numerical approximation.`;}
+  else if(node.parentElement?.closest('#stage-note'))replacement=enStages[active]||'';
+  else if(node.parentElement?.closest('#taskText') && active>=0)replacement=enLessons[active].task;
+  else if(node.parentElement?.closest('#hintText') && active>=0)replacement=enLessons[active].hint;
+  else if(node.parentElement?.closest('#insightText') && active>=0)replacement=enLessons[active].explain;
+  else if(node.parentElement?.closest('#lessonSubtitle') && active>=0)replacement=enLessons[active].sub;
+  else if(node.parentElement?.closest('#freeStatus'))replacement='Check the connections and readings above.';
+  else if(node.parentElement?.closest('#freeSelected')){
+    replacement=trimmed.replace(/القطعة المختارة:/g,'Selected:').replace(/جهد البطارية/g,'Battery voltage').replace(/المقاومة/g,'Resistance').replace(/لف القطعة/g,'Rotate').replace(/حذف القطعة/g,'Delete component').replace(/مفتوح/g,'Open').replace(/مغلق/g,'Closed').replace(/اقفل المفتاح/g,'Close switch').replace(/افتح المفتاح/g,'Open switch');
+    for(const [ar,en] of Object.entries(englishDict))if(replacement.includes(ar)&&ar.length>3)replacement=replacement.split(ar).join(en);
+  }
+  else if(node.parentElement?.closest('#stage,#readouts,#controls,#magReadings,#freeBoard,#freeMetrics')){
+   replacement=trimmed;
+   const terms=[['الكلي','total'],['طرفي','terminal'],['عمودية على مستوى السلك والمجال','perpendicular to the wire-field plane'],['لفة','turns'],['شدة المجال','Field strength'],['العودة للمعامل','Back to labs'],['المقاومة المكافئة','Equivalent resistance'],['التيار نفسه في المقاومتين','Same current through both resistors'],['انحراف','Deflection'],['يمين','right'],['شمال','left'],['الجهد على الحمل','Load voltage'],['الفقد الداخلي','Internal drop'],['القوة الدافعة','EMF'],['التيار الكلي','Total current'],['العقدة','Junction'],['سلك في مجال مغناطيسي منتظم','Wire in a uniform magnetic field'],['مقدار القوة','Force magnitude'],['الملف','coil'],['منظر من أعلى','Top view'],['مقطع سلك يمر عموديًا على الشاشة','Wire cross-section perpendicular to screen'],['ملف لولبي طويل','Long solenoid'],['نموذج مثالي','ideal model'],['مغلق','Closed'],['مفتوح','Open'],['مقاومة','Resistance'],['بطارية','Battery'],['لمبة','Bulb'],['أميتر','Ammeter'],['فولتميتر','Voltmeter'],['مفتاح','Switch'],['عدد اللفات','Turns'],['شدة التيار','Current'],['جهد البطارية','Battery voltage'],['الجهد','Voltage'],['القوة','Force'],['التيار','Current'],['درجة','degrees'],['نيوتن','newtons'],['أوم','ohms'],['القطب','Pole'],['اقفل المفتاح','Close the switch'],['افصل كل الأسلاك','Disconnect all wires']];
+   for(const [ar,en] of terms)replacement=replacement.split(ar).join(en);
+  }
+  else replacement=trimmed;
+ }
+ if(replacement===undefined)replacement=trimmed;
+ return src.replace(trimmed,replacement);
+}
+function translateNode(n){if(n.nodeType!==3)return;const parent=n.parentElement;if(!parent||parent.closest('script,style,.welcome-quotes'))return;
+ if(uiLang==='en'){
+  const source=n._originalArabic||n.nodeValue;
+  if(!/[؀-ۿ]/.test(source))return;
+  if(!n._originalArabic)n._originalArabic=source;
+  const en=translateLiveArabic(source,n);
+  if(en!==n.nodeValue)n.nodeValue=en;
+ }else if(n._originalArabic){if(n.nodeValue!==n._originalArabic)n.nodeValue=n._originalArabic;}
+}
+function translateDOM(root=document.body){
+ const walker=document.createTreeWalker(root,NodeFilter.SHOW_TEXT);const nodes=[];let n;
+ while(n=walker.nextNode())nodes.push(n);
+ for(const node of nodes)translateNode(node);
+}
+let translating=false;
+const i18nObserver=new MutationObserver(changes=>{
+ if(uiLang!=='en'||translating)return;
+ translating=true;
+ try{for(const item of changes){if(item.type==='characterData')translateNode(item.target);else for(const n of item.addedNodes){if(n.nodeType===3)translateNode(n);else if(n.nodeType===1)translateDOM(n)}}}finally{translating=false}
+});
+function changeLanguage(lang){uiLang=lang==='en'?'en':'ar';document.documentElement.lang=uiLang;document.documentElement.dir=uiLang==='en'?'ltr':'rtl';
+ const btn=$('langToggle');btn.querySelector('.pref-lang').textContent=uiLang==='en'?'ع':'EN';btn.setAttribute('aria-label',uiLang==='en'?'التبديل للعربية':'Switch to English');
+ try{localStorage.setItem('fizya-language',uiLang)}catch(e){};
+ translateDOM();
+ if(uiLang==='en'){document.title='FIZYA | Interactive Physics Lab';}else document.title='فِيزيا | معمل الفيزياء التفاعلي';
+ // Refresh the graph labels for this exact experiment without changing physics state.
+ if(specialMode==='magnetic')renderMagCanvas();
+}
+function changeTheme(mode){uiTheme=mode==='dark'?'dark':'light';document.documentElement.setAttribute('data-theme',uiTheme);
+ const btn=$('themeToggle');btn.querySelector('.pref-emoji').textContent=uiTheme==='dark'?'☀️':'🌙';btn.querySelector('.pref-label').textContent=uiTheme==='dark'?'Light':'Dark';btn.setAttribute('aria-label',uiTheme==='dark'?'Switch to light mode':'Switch to dark mode');
+ const meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.content=uiTheme==='dark'?'#0b1522':'#f6f8fb';
+ try{localStorage.setItem('fizya-theme',uiTheme)}catch(e){}
+}
+$('themeToggle').addEventListener('click',()=>changeTheme(uiTheme==='dark'?'light':'dark'));
+$('langToggle').addEventListener('click',()=>changeLanguage(uiLang==='ar'?'en':'ar'));
+try{uiLang=localStorage.getItem('fizya-language')==='en'?'en':'ar';uiTheme=localStorage.getItem('fizya-theme')==='dark'?'dark':'light'}catch(e){}
+changeTheme(uiTheme);
+changeLanguage(uiLang);
+i18nObserver.observe(document.body,{subtree:true,childList:true,characterData:true});
+
 setupEvents();bindExtraEvents();showHome();$('welcomeOverlay').hidden=false;
+
+</script>
+<script>
+/* Fizya v3 — ADDITIVE magnetic studio. Original v3 code and labs are untouched. */
+(function(){
+'use strict';
+const MU=4*Math.PI*1e-7, TWO=Math.PI*2;
+const forms=[['wire','Straight Wire','السلك المستقيم'],['loop','Circular Loop','الحلقة الدائرية'],['coil','Multi-turn Coil','ملف متعدد اللفات'],['solenoid','Solenoid','الملف الحلزوني'],['parallel','Parallel Wires','سلكان متوازيان'],['perpendicular','Perpendicular Wires','سلكان متعامدان'],['flux','Magnetic Flux','الفيض المغناطيسي']];
+const names=Object.fromEntries(forms.map(([id,en])=>[id,en]));
+const initial=()=>({form:'wire',view:'2d',on:true,current:4,current2:3,direction:1,direction2:1,turns:30,radius:.10,length:.5,gap:.22,angle:35,externalB:.25,probeX:.06,probeY:.08,showLines:true,showArrows:true,showCompass:true,showCurrent:true,yaw:.7,pitch:.42,zoom:1});
+let s=initial(),lastCanvas=null,stageRAF=0,phase=0,frameTime=0,mouseOrbit=null,probeDragging=false;
+let explored=new Set(['wire']), views=new Set(['2d']), reversed=false;
+const f=(n,d=2)=>Number.isFinite(n)?Number(n).toFixed(d):'—';
+const text=(ar,en)=>uiLang==='en'?en:ar;
+const titleForm=id=>{const row=forms.find(x=>x[0]===id);return row?text(row[2],row[1]):id};
+function onCurrent(s){return s.on?s.current:0}
+function field(s){
+ const I=onCurrent(s)*s.direction,R=Math.max(.001,s.radius),N=s.form==='loop'?1:s.turns;
+ switch(s.form){
+ case 'wire': {const r=Math.hypot(s.probeX,s.probeY);return {b:r<.003?NaN:MU*I/(TWO*r),formula:'B = μ₀I / (2πr)',at:'عند نقطة القياس P',dir:I>=0?'اتجاه اليد اليمنى':'عكس اتجاه اليد اليمنى'};}
+ case 'loop':return {b:MU*N*I/(2*R),formula:'B(center) = μ₀NI / (2R)',at:'مركز الحلقة',dir:I>=0?'خارج الصفحة ⊙':'داخل الصفحة ⊗'};
+ case 'coil':return {b:MU*N*I/(2*R),formula:'B(center) = μ₀NI / (2R)',at:'مركز الملف متقارب اللفات',dir:I>=0?'خارج الصفحة ⊙':'داخل الصفحة ⊗'};
+ case 'solenoid':return {b:MU*N*I/s.length,formula:'B ≈ μ₀NI / L',at:'داخل سولينويد طويل (تقريب)',dir:I>=0?'القطب N يمينًا':'القطب N يسارًا'};
+ case 'parallel':{const x1=-s.gap/2,x2=s.gap/2,x=s.probeX,da=x-x1,db=x-x2;
+   const b1=Math.abs(da)<.003?NaN:-MU*I/(TWO*da);
+   const b2=Math.abs(db)<.003?NaN:-MU*(s.on?s.current2*s.direction2:0)/(TWO*db);
+   return {b:b1+b2,b1,b2,formula:'Bₙₑₜ = B₁ + B₂ (بالاتجاه)',at:'عند النقطة P بين السلكين أو خارجهما',dir:b1+b2>=0?'خارج الصفحة ⊙':'داخل الصفحة ⊗'};}
+ case 'perpendicular':{const x=s.probeX,y=s.probeY;
+   // X-directed conductor: B_z = μ0 I_x/(2π y); Y-directed conductor: B_z = -μ0 I_y/(2π x).
+   const b1=Math.abs(y)<.003?NaN:MU*I/(TWO*y);
+   const b2=Math.abs(x)<.003?NaN:-MU*(s.on?s.current2*s.direction2:0)/(TWO*x);
+   return {b:b1+b2,b1,b2,formula:'Bₙₑₜ = Bₓ + Bᵧ (بالاتجاه)',at:'عند نقطة P في مستوى السلكين',dir:b1+b2>=0?'خارج الصفحة ⊙':'داخل الصفحة ⊗'};}
+ case 'flux':{const b=s.externalB,area=Math.PI*R*R,phi=b*area*Math.sin(s.angle*Math.PI/180);
+   return {b,phi,area,formula:'Φ = BA sin θ',at:'زاوية θ بين مستوى الملف والمجال',dir:'المجال الخارجي ثابت الاتجاه'};}
+ }
+}
+function niceB(v){if(!Number.isFinite(v))return 'اختر نقطة خارج السلك';const a=Math.abs(v);return a>=.001?f(a*1000,3)+' mT':f(a*1e6,2)+' μT';}
+const v2=(x,y)=>`${x.toFixed(1)},${y.toFixed(1)}`;
+const sym=(x,y,label,cl='mag-caption')=>`<text x="${x}" y="${y}" class="${cl}" text-anchor="middle">${label}</text>`;
+const lineS=(x1,y1,x2,y2,color='#f4b575',w=4,more='')=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${color}" stroke-width="${w}" stroke-linecap="round" ${more}/>`;
+const circ=(x,y,r,fill='none',stroke='#edaf6c',w=2)=>`<circle cx="${x}" cy="${y}" r="${r}" fill="${fill}" stroke="${stroke}" stroke-width="${w}"/>`;
+function arrow(x1,y1,x2,y2,c='#79eddb',w=2.5){const t=Math.atan2(y2-y1,x2-x1),a=10;return `${lineS(x1,y1,x2,y2,c,w)}<path d="M${v2(x2,y2)}L${v2(x2-a*Math.cos(t-.48),y2-a*Math.sin(t-.48))}L${v2(x2-a*Math.cos(t+.48),y2-a*Math.sin(t+.48))}Z" fill="${c}"/>`}
+function arrowRing(cx,cy,r,d,s){const a=-Math.PI*.32,b=a+(d>0?1:-1)*Math.PI*1.73;
+ const p=(ang)=>[cx+r*Math.cos(ang),cy+r*Math.sin(ang)],pa=p(a),pb=p(b),t=b+(d>0?Math.PI/2:-Math.PI/2);
+ return `<path d="M${v2(...pa)} A${r} ${r} 0 1 ${d>0?1:0} ${v2(...pb)}" fill="none" stroke="#6be7d1" stroke-width="2.5" stroke-dasharray="7 6"/>${s.showArrows?arrow(pb[0]-13*Math.cos(t),pb[1]-13*Math.sin(t),pb[0],pb[1]):''}`;
+}
+function coil2(s,cx,cy,r,multi){let result='';const many=multi?Math.min(11,Math.max(2,Math.round(s.turns/12))):1;
+ for(let i=0;i<many;i++){const off=(i-(many-1)/2)*3.5;result+=circ(cx+off,cy+off,r,'none','#ffc683',i===many-1?4.8:2);}
+ if(s.on&&s.current>0&&s.showCurrent)result+=`<circle class="mag-dot-moving" cx="${cx}" cy="${cy-r}" r="5" fill="#d9fff3"><animateMotion dur="${Math.max(.7,4/(.5+s.current/3))}s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="linear" path="M${cx} ${cy-r}a${r} ${r} 0 1 ${s.direction===1?1:0} 0 ${2*r}a${r} ${r} 0 1 ${s.direction===1?1:0} 0 ${-2*r}"/></circle>`;
+ if(s.on&&s.current>0&&s.showLines){const op=Math.min(1,.2+s.current/11);result+=`<g opacity="${op}">`; for(let rr of [42,72])result+=circ(cx,cy,rr,'none','#5cceb9',2); result+='</g>'; }
+ result+=sym(cx,cy+10,s.on?(s.direction===1?'⊙':'⊗'):'·','mag-core');
+ return result;
+}
+function field2D(s,calc){const powered=s.on&&s.current>0, d=s.direction;
+ let content=`<defs><linearGradient id="mag-copper" x1="0" x2="1"><stop stop-color="#ad6c3d"/><stop offset=".48" stop-color="#ffe3a6"/><stop offset="1" stop-color="#98532a"/></linearGradient></defs>`;
+ content+=`<rect x="12" y="10" width="596" height="300" rx="16" fill="#102c41" fill-opacity=".35" stroke="#386079"/>`;
+ if(s.form==='wire'){
+ const cx=310,cy=161,rr=powered?1:0;
+ content+=sym(308,40,'LONG STRAIGHT WIRE · مقطع عرضي')+circ(cx,cy,17,'#ac6e43','#ffcf8b',3)+sym(cx,cy+9,d>0?'⊙':'⊗','mag-core');
+ if(powered&&s.showLines)for(let r of [44,77,111,145])content+=arrowRing(cx,cy,r,d,s);
+ const px=310+s.probeX*480,py=161-s.probeY*390;
+ if(s.showCompass){let r=Math.hypot(s.probeX,s.probeY)||1,tx=-s.probeY/r*s.direction,ty=-s.probeX/r*s.direction;content+=`<g class="mag-probe" data-mag-probe="1" transform="translate(${px},${py})">${circ(0,0,13,'#f1f5ed','#71dbc5',2)}${arrow(-tx*9,-ty*9,tx*9,ty*9,'#b84c49',2)}${sym(0,-18,'P')}</g>`;}
+ }else if(s.form==='loop'||s.form==='coil'){
+ const cx=310,cy=160,r=Math.max(34,s.radius*390);
+ content+=sym(310,39,s.form==='loop'?'CIRCULAR LOOP · الحلقة الدائرية':'MULTI-TURN COIL · ملف متعدد اللفات');
+ content+=coil2(s,cx,cy,r,s.form==='coil');
+ if(s.showCompass)content+=sym(310,286,'B at center = '+niceB(calc.b));
+ }else if(s.form==='solenoid'){
+ const turns=Math.min(26,Math.max(3,Math.ceil(s.turns/7))),width=Math.max(190,Math.min(440,290*s.length/.5)),start=310-width/2,step=width/turns;
+ content+=sym(310,35,'SOLENOID · ملف لولبي');
+ if(powered&&s.showLines){for(let yy of [123,161,200])content+=arrow(d>0?start+9:start+width-9,yy,d>0?start+width-9:start+9,yy);
+ for(let yy of [66,258])content+=`<path d="M${start+width} 161 Q${start+width+85} ${yy} 310 ${yy} Q${start-85} ${yy} ${start} 161" stroke="#45c8bb" stroke-width="2" fill="none" stroke-dasharray="5 8"/>`;}
+ content+=`<rect x="${start}" y="111" width="${width}" height="100" rx="48" fill="#1c3a52" fill-opacity=".4" stroke="#416178" stroke-dasharray="5 6"/>`;
+ for(let i=0;i<turns;i++){let x=start+(i+.5)*step;content+=`<ellipse cx="${x}" cy="161" rx="${Math.max(4,step*.52)}" ry="56" fill="none" stroke="url(#mag-copper)" stroke-width="${Math.min(4,step*.32)}"/>`;}
+ if(powered&&s.showCurrent)content+=`<path d="M${start} 103 H${start+width}" class="mag-current-path ${d<0?'reverse':''}"/>`;
+ content+=sym(start-23,165,d>0?'S':'N','mag-pole')+sym(start+width+22,165,d>0?'N':'S','mag-pole');
+ }else if(s.form==='parallel'){
+ const x1=310-s.gap*360,x2=310+s.gap*360;
+ content+=sym(310,40,'TWO PARALLEL WIRES');
+ for(const [x,i,dir] of [[x1,s.current,s.direction],[x2,s.current2,s.direction2]]){
+ content+=lineS(x,71,x,266,'url(#mag-copper)',9);
+ if(powered&&s.showCurrent)content+=`<path d="M${x} ${dir>0?260:76} V${dir>0?76:260}" class="mag-current-path"/>`;
+ if(powered&&s.showLines)for(const r of [22,42])content+=arrowRing(x,167,r,dir,s);
+ content+=sym(x,291,(dir>0?'↑':'↓')+' '+f(i,1)+' A');
+ }
+ const px=310+s.probeX*620,py=164-s.probeY*260;
+ if(s.showCompass)content+=`<g class="mag-probe" data-mag-probe="1" transform="translate(${px},${py})">${circ(0,0,11,'#f7e8a7','#3ad7cd',2)}${sym(0,-15,'P')}</g>`;
+ }else if(s.form==='perpendicular'){
+ content+=sym(310,40,'PERPENDICULAR WIRES');
+ content+=lineS(105,168,514,168,'url(#mag-copper)',8)+lineS(310,61,310,272,'url(#mag-copper)',8);
+ if(powered&&s.showCurrent)content+=arrow(d>0?195:425,168,d>0?425:195,168,'#e3ffef',3)+arrow(s.direction2>0?310:310,s.direction2>0?236:95,310,s.direction2>0?95:236,'#e3ffef',3);
+ if(powered&&s.showLines)for(const [x,y] of [[218,100],[400,100],[218,245],[400,245]])content+=sym(x,y,( ( (y<168?1:-1)*d + (x>310?-1:1)*s.direction2 ) >=0 )?'⊙':'⊗','mag-core-small');
+ const px=310+s.probeX*450,py=168-s.probeY*420;
+ if(s.showCompass)content+=`<g class="mag-probe" data-mag-probe="1" transform="translate(${px},${py})">${circ(0,0,11,'#f7e8a7','#3ad7cd',2)}${sym(0,-16,'P')}</g>`;
+ }else if(s.form==='flux'){
+ content+=sym(310,42,'MAGNETIC FLUX THROUGH A LOOP');
+ const h=100*Math.max(.02,Math.sin(s.angle*Math.PI/180)),ang=s.angle*Math.PI/180;
+ content+=`<ellipse cx="310" cy="165" rx="100" ry="${h}" fill="#2a9c9e" fill-opacity=".23" stroke="#f7b66e" stroke-width="5"/>`;
+ if(s.showLines&&s.externalB>0)for(let x=130;x<=500;x+=Math.max(45,Math.round(135/(.3+s.externalB))))content+=arrow(x,74,x,262,'#65d9cf',2);
+ content+=sym(310,292,`Φ = ${f(calc.phi,5)} Wb  ·  θ = ${s.angle}°`);
+ }
+ return `<div class="mag-2d-scene"><svg viewBox="0 0 620 320" role="img" aria-label="رسم المجال المغناطيسي في وضع ثنائي الأبعاد">${content}</svg>${['wire','parallel','perpendicular'].includes(s.form)?'<div class="mag-drag-note">اسحب النقطة P لتغيير مكان القياس</div>':''}</div>`;
+}
+const controlsNote={wire:'المجال دائري حول السلك الطويل، ويتناقص مع البعد عن السلك.',loop:'المجال عند المركز يتناسب مع عدد اللفات والتيار وعكسيًا مع نصف القطر.',coil:'ملف متقارب اللفات؛ الحساب عند مركزه على تقريب لفات دائرية متطابقة.',solenoid:'تقريب المجال الداخلي لملف لولبي طويل. شكل خطوط العودة خارج الملف توضيحي.',parallel:'اتجاه المجال يعتمد على اتجاه التيارين وموقع نقطة P. الحقل المحصل مجموع جبري.',perpendicular:'لكل سلك مساهمة في المجال عند P؛ لا تُستخدم نقطة على السلك نفسه.',flux:'زاوية θ بين مستوى الملف والمجال الخارجي؛ الفيض Φ = BA sin θ.'};
+function paint3D(canvas,s,t){const ctx=canvas.getContext('2d');if(!ctx)return;const W=canvas.width,H=canvas.height;ctx.clearRect(0,0,W,H);
+ const grd=ctx.createRadialGradient(W*.5,H*.45,20,W*.5,H*.5,540);grd.addColorStop(0,'#183c55');grd.addColorStop(1,'#091e2e');ctx.fillStyle=grd;ctx.fillRect(0,0,W,H);
+ const sy=Math.sin(s.yaw),cy=Math.cos(s.yaw),sp=Math.sin(s.pitch),cp=Math.cos(s.pitch);
+ function project([x,y,z]){const xx=x*cy-z*sy,zz=x*sy+z*cy,yy=y*cp-zz*sp,depth=y*sp+zz*cp,persp=3.8/(3.8+depth*.25),k=135*s.zoom*persp;return [W/2+xx*k,H/2-yy*k,depth];}
+ function curve(fn,color='#64ddcf',weight=2,glow=false){ctx.beginPath();for(let j=0;j<=110;j++){const [x,y]=project(fn(j/110));if(j===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}ctx.strokeStyle=color;ctx.lineWidth=weight;ctx.lineCap='round';if(glow){ctx.shadowBlur=10;ctx.shadowColor=color}ctx.stroke();ctx.shadowBlur=0;}
+ function sphere(v,color='#e9fff7',r=4){const p=project(v);ctx.beginPath();ctx.arc(p[0],p[1],r,0,TWO);ctx.fillStyle=color;ctx.shadowBlur=8;ctx.shadowColor=color;ctx.fill();ctx.shadowBlur=0;}
+ function line3(a,b,color='#eec486',w=5){curve(u=>a.map((v,j)=>v+(b[j]-v)*u),color,w)}
+ function arrow3(a,b,color='#68ead8'){const p=project(a),q=project(b),ang=Math.atan2(q[1]-p[1],q[0]-p[0]);ctx.beginPath();ctx.moveTo(...p.slice(0,2));ctx.lineTo(...q.slice(0,2));ctx.strokeStyle=color;ctx.lineWidth=2.5;ctx.stroke();ctx.beginPath();ctx.moveTo(q[0],q[1]);ctx.lineTo(q[0]-11*Math.cos(ang-.5),q[1]-11*Math.sin(ang-.5));ctx.lineTo(q[0]-11*Math.cos(ang+.5),q[1]-11*Math.sin(ang+.5));ctx.closePath();ctx.fillStyle=color;ctx.fill();}
+ const dim=0.65+(s.on?Math.min(1,s.current/7)*.35:0),fieldColor=s.on?`rgba(97,234,212,${dim})`:'rgba(79,121,140,.25)';
+ function ring(center,axis,r,color=fieldColor){curve(u=>{const a=TWO*u;return axis==='y'?[center[0]+r*Math.cos(a),center[1],center[2]+r*Math.sin(a)]:axis==='x'?[center[0],center[1]+r*Math.cos(a),center[2]+r*Math.sin(a)]:[center[0]+r*Math.cos(a),center[1]+r*Math.sin(a),center[2]]},color,2);if(s.showArrows&&s.on){const a=TWO*((t*.35)%1),sign=s.direction;const p=axis==='y'?[center[0]+r*Math.cos(a),center[1],center[2]+r*Math.sin(a)]:axis==='x'?[center[0],center[1]+r*Math.cos(a),center[2]+r*Math.sin(a)]:[center[0]+r*Math.cos(a),center[1]+r*Math.sin(a),center[2]];const tangent=axis==='y'?[-Math.sin(a),0,Math.cos(a)]:axis==='x'?[0,-Math.sin(a),Math.cos(a)]:[-Math.sin(a),Math.cos(a),0];arrow3(p,p.map((v,j)=>v+sign*tangent[j]*.26))}}
+ function flow(fn){if(!s.on||!s.showCurrent)return;for(let i=0;i<9;i++){const u=((i/9+(s.direction*t)%1)+1)%1;sphere(fn(u),'#c0fff7',3.8)}}
+ // Floor grid establishes depth and camera perspective.
+ for(let q=-3;q<=3;q++){curve(u=>[-2+4*u,-1.43,q*.6],'rgba(93,138,161,.10)',1);curve(u=>[q*.6,-1.43,-2+4*u],'rgba(93,138,161,.10)',1)}
+ const lineAxis=(loc,axis,d,idx)=>{const a=axis==='y'?[loc,-1.27,0]:[-1.45,loc,0],b=axis==='y'?[loc,1.27,0]:[1.45,loc,0];line3(a,b,'#8a502c',12);line3(a,b,'#ffc47e',7);flow(u=>a.map((v,j)=>v+(b[j]-v)*(d===1?u:1-u)));if(s.showLines&&s.on&&s.current>0)for(const r of [.46,.73])ring(axis==='y'?[loc,idx*.17,0]:[idx*.17,loc,0],axis,r)};
+ switch(s.form){
+ case 'wire':lineAxis(0,'y',s.direction,0);break;
+ case 'loop':case 'coil':{
+   const count=s.form==='loop'?1:Math.min(16,Math.max(3,Math.round(s.turns/10))), loopR=.42+s.radius*4;
+   for(let k=0;k<count;k++){const z=(k-(count-1)/2)*.065;
+    const C=s.form==='loop'?'#ffca80':'#e2aa6c';curve(u=>[loopR*Math.cos(TWO*u),loopR*Math.sin(TWO*u),z],C,4);
+   }
+   flow(u=>[loopR*Math.cos(TWO*u),loopR*Math.sin(TWO*u),0]);
+   if(s.showLines&&s.on&&s.current>0){for(const r of [.56,.88])for(const ang of [0,Math.PI/2])curve(u=>{const a=TWO*u;return [(r+.32*Math.cos(a))*Math.cos(ang),(r+.32*Math.cos(a))*Math.sin(ang),1.08*Math.sin(a)]},fieldColor,2);for(const a of [-.55,.55])arrow3([0,0,a],[0,0,a+s.direction*.34]);}
+   break;}
+ case 'solenoid':{
+   const wraps=Math.max(3,Math.min(28,Math.round(s.turns/6))),len=1.2+s.length*.8;
+   const helix=u=>[-len+2*len*u,.66*Math.sin(TWO*wraps*u),.66*Math.cos(TWO*wraps*u)];curve(helix,'#f2b576',5,true);flow(helix);
+   if(s.showLines&&s.on&&s.current>0){for(const yy of [-.3,0,.3])arrow3([s.direction>0?-1.15:1.15,yy,0],[s.direction>0?1.15:-1.15,yy,0]);for(const z of [.15,-.15])curve(u=>[1.4*Math.cos(Math.PI*u),1.04*Math.sin(Math.PI*u),z],fieldColor,2);}
+   break;}
+ case 'parallel':{const delta=.6+s.gap;lineAxis(-delta,'y',s.direction,-1);lineAxis(delta,'y',s.direction2,1);break;}
+ case 'perpendicular':{lineAxis(0,'y',s.direction2,0);lineAxis(-.12,'x',s.direction,0);break;}
+ case 'flux':{
+   const a=(90-s.angle)*Math.PI/180;
+   const vertices=Array.from({length:65},(_,i)=>{const phi=TWO*i/64, x=.95*Math.cos(phi), y=.95*Math.sin(phi);return [x*Math.cos(a),y,-x*Math.sin(a)]});
+   ctx.beginPath();vertices.forEach((v,i)=>{const p=project(v);i===0?ctx.moveTo(p[0],p[1]):ctx.lineTo(p[0],p[1])});ctx.closePath();ctx.fillStyle='rgba(50,195,180,.22)';ctx.fill();ctx.strokeStyle='#f5bd78';ctx.lineWidth=4;ctx.stroke();
+   if(s.showLines&&s.externalB>0)for(const x of [-1.1,-.55,0,.55,1.1].slice(0,Math.max(1,Math.ceil(s.externalB*5))))for(const y of [-.65,.65])arrow3([x,y,-1.1],[x,y,1.1]);break;}
+ }
+ if(s.showCompass&&['wire','parallel','perpendicular'].includes(s.form)){const x=clamp(s.probeX*3.4,-1.4,1.4),y=clamp(s.probeY*3.5,-.95,.95);sphere([x,y,.8],'#ffe092',7);}
+ ctx.textAlign='left';ctx.font='bold 18px Arial';ctx.fillStyle='#e1f9f6';ctx.fillText(names[s.form],20,32);ctx.font='14px Arial';ctx.fillStyle='#95bfc9';ctx.fillText('3D INTERACTIVE • DRAG TO ORBIT',20,H-19);
+}
+
+function buttonTile(){return `<button class="special-tile" data-studio-open="1"><span class="tile-symbol">🧭</span><span><strong>${text('معمل المغناطيسية الشامل 2D / 3D','Magnetic Studio 2D / 3D')}</strong><small>${text('٧ تجارب • تحكم مباشر • خطوط المجال والقياسات','7 experiments • live controls • field visualization')}</small></span></button>`;}
+// Preserve the original extraTiles output; only append one separate link.
+const originalExtraTiles=extraTiles;
+extraTiles=function(){return originalExtraTiles().replace('</section>',buttonTile()+'</section>')};
+const landingExtra=document.querySelector('.landing-special');if(landingExtra)landingExtra.insertAdjacentHTML('beforeend',buttonTile());
+const aside=document.querySelector('.sidebar-lab-links');if(aside)aside.insertAdjacentHTML('beforeend',`<button type="button" class="sidebar-special studio-sidebar-link" data-studio-open="1"><span>🧭</span><span>${text('معمل المغناطيسية الشامل','Magnetic Studio')}<small>2D / 3D • 7 Experiments</small></span></button>`);
+function openStudio(){
+ specialMode='magStudio';active=-1;
+ $('landing').hidden=true;$('lessonView').hidden=true;$('extraView').hidden=false;
+ $('sidebar').classList.remove('open');renderNav();
+ document.querySelectorAll('.sidebar-special').forEach(x=>x.classList.toggle('selected',x.hasAttribute('data-studio-open')));
+ document.title=text('معمل المغناطيسية الشامل | فِيزيا','Magnetic Studio | FIZYA');
+ renderPage();window.scrollTo({top:0,behavior:'instant'});
+}
+const measure=(name,value)=>`<div class="studio-metric"><small>${name}</small><strong>${value}</strong></div>`;
+const range=(id,ar,en,min,max,step,unit)=>{
+ const v=s[id];return `<label class="studio-control" for="studio-${id}"><span><b>${text(ar,en)}</b><output data-studio-value="${id}">${f(v,Number.isInteger(step)?0:step>=.1?1:2)} ${unit}</output></span><input id="studio-${id}" data-studio-range="${id}" type="range" min="${min}" max="${max}" step="${step}" value="${v}"><span class="studio-minmax"><i>${min}</i><i>${max}</i></span></label>`;};
+const toggle=(k,ar,en)=>`<button type="button" data-studio-toggle="${k}" class="studio-chip ${s[k]?'active':''}" aria-pressed="${s[k]}">${s[k]?'✓':'○'} ${text(ar,en)}</button>`;
+const dirs=(key,ar,en)=>`<div class="studio-control"><span class="studio-control-title">${text(ar,en)}</span><div class="studio-segment"><button type="button" data-studio-direction="${key}" data-dir="1" class="${s[key]===1?'active':''}">+ ↻</button><button type="button" data-studio-direction="${key}" data-dir="-1" class="${s[key]===-1?'active':''}">− ↺</button></div></div>`;
+function controlsHTML(){let h='';
+ if(s.form!=='flux')h+=range('current','شدة التيار الأول','Current I₁',0,20,.5,'A');
+ if(['parallel','perpendicular'].includes(s.form))h+=range('current2','شدة التيار الثاني','Current I₂',0,20,.5,'A');
+ if(s.form!=='flux')h+=dirs('direction','اتجاه التيار الأول','Direction of current I₁');
+ if(['parallel','perpendicular'].includes(s.form))h+=dirs('direction2','اتجاه التيار الثاني','Direction of current I₂');
+ if(['coil','solenoid'].includes(s.form))h+=range('turns','عدد اللفات N','Number of turns N',1,200,1,'');
+ if(['loop','coil','flux'].includes(s.form))h+=range('radius','نصف القطر R','Radius R',.03,.25,.01,'m');
+ if(s.form==='solenoid')h+=range('length','طول الملف L','Solenoid length L',.15,1,.05,'m');
+ if(s.form==='parallel')h+=range('gap','المسافة بين السلكين','Wire spacing',.10,.5,.01,'m');
+ if(['wire','parallel','perpendicular'].includes(s.form))h+=range('probeX','نقطة القياس X','Probe X position',-.35,.35,.01,'m')+range('probeY','نقطة القياس Y','Probe Y position',-.30,.30,.01,'m');
+ if(s.form==='flux')h+=range('externalB','المجال الخارجي B','External field B',0,1,.01,'T')+range('angle','زاوية مستوى الملف θ','Coil plane angle θ',0,90,1,'°');
+ h+=`<div class="studio-control"><span class="studio-control-title">${text('أدوات العرض','Display tools')}</span><div class="studio-toggle-row">${toggle('showLines','خطوط المجال','Field lines')}${toggle('showArrows','أسهم الاتجاه','Direction arrows')}${toggle('showCompass','نقطة القياس / البوصلة','Probe / compass')}${toggle('showCurrent','حركة التيار','Current flow')}</div></div>`;
+ if(s.form!=='flux')h+=`<button class="studio-power" data-studio-power="1">${s.on?text('⏸ إيقاف التيار','⏸ Switch current off'):text('▶ تشغيل التيار','▶ Switch current on')}</button>`;
+ if(s.view==='3d')h+=range('zoom','تقريب الكاميرا','Camera zoom',.55,1.8,.05,'×')+`<button class="studio-reset" data-studio-resetcamera="1">⟲ ${text('إعادة زاوية الكاميرا','Reset camera angle')}</button>`;
+ return h;
+}
+function sceneHTML(){const result=field(s);return s.view==='2d'?field2D(s,result):`<div class="mag-3d-scene"><canvas id="studio-canvas" width="900" height="490" aria-label="Interactive 3D magnetic field simulation"></canvas><div class="mag-3d-hint">${text('اسحب لتدوير المشهد · عجلة الماوس للتكبير','Drag to orbit · scroll to zoom')}</div></div>`;}
+function metricsHTML(){const calc=field(s),val=niceB(calc.b);let h=measure(s.form==='flux'?text('المجال الخارجي B','External field B'):text('كثافة المجال |B|','Magnetic field |B|'),s.form==='flux'?f(s.externalB,3)+' T':val);
+ h+=measure(s.form==='flux'?text('الفيض Φ','Flux Φ'):text('التيار الأول I₁','Current I₁'),s.form==='flux'?f(calc.phi,6)+' Wb':(s.on?s.current:0).toFixed(1)+' A');
+ if(['parallel','perpendicular'].includes(s.form)){h+=measure(text('مساهمة السلك الأول','Wire 1 contribution'),niceB(calc.b1));h+=measure(text('مساهمة السلك الثاني','Wire 2 contribution'),niceB(calc.b2));h+=measure(text('المحصلة باتجاه','Signed resultant'),Number.isFinite(calc.b)?(calc.b>=0?'⊙ ':'⊗ ')+val:text('نقطة على السلك','Probe on wire'));}
+ if(s.form==='flux')h+=measure(text('مساحة الحلقة','Loop area'),f(calc.area,4)+' m²');
+ h+=measure(text('القانون المستخدم','Formula'),calc.formula);
+ return h;
+}
+const question={
+ wire:['لو زودت شدة التيار مع ثبات المسافة، المجال هيعمل إيه؟','What happens to B if current increases at constant distance?',['هيزود','هيقل','مش هيتغير'],['Increase','Decrease','Stay the same'],0,'B ∝ I'],
+ loop:['لو كبرت نصف قطر الحلقة مع ثبات التيار، المجال عند المركز هيعمل إيه؟','What happens at the center if loop radius increases?',['هيزود','هيقل','مش هيتغير'],['Increase','Decrease','Stay the same'],1,'B = μ₀I / (2R)'],
+ coil:['لو زودت اللفات، المجال عند المركز هيعمل إيه؟','What if the number of turns increases?',['هيزود','هيقل','مش هيتغير'],['Increase','Decrease','Stay the same'],0,'B ∝ N'],
+ solenoid:['لو زودت طول الملف مع ثبات اللفات والتيار، المجال هيعمل إيه؟','What if solenoid length increases while N and I stay fixed?',['هيزود','هيقل','مش هيتغير'],['Increase','Decrease','Stay the same'],1,'B ≈ μ₀NI/L'],
+ parallel:['لما سلكين متوازيين يحملوا تيارًا في نفس الاتجاه، بيحصل بينهم إيه؟','Two parallel wires carrying current in the same direction will...',['يتجاذبوا','يتنافروا','ملهمش تأثير'],['Attract','Repel','Not interact'],0,'الأسلاك المتوازية ذات التيار في نفس الاتجاه تتجاذب.'],
+ perpendicular:['لو عكست اتجاه تيار سلك واحد، محصل المجال عند P ممكن تتغير؟','If you reverse one wire current, can the resultant field at P change?',['أيوه','لأ','بتفضل ثابتة دايمًا'],['Yes','No','Always stays fixed'],0,'التراكب الاتجاهي يتغير عند عكس تيار أحد السلكين.'],
+ flux:['لو مستوى الملف بقى عمودي على المجال، الفيض هيكون؟','If the coil plane is perpendicular to the field, the flux is...',['أقصى قيمة','صفر','سالب دائمًا'],['Maximum','Zero','Always negative'],0,'Φ = BA sin θ؛ الزاوية هنا بين المستوى والمجال.']
+};
+let quizChoice={};
+function quizHTML(){const q=question[s.form],choice=quizChoice[s.form];return `<section class="studio-panel studio-quiz"><h3>🎯 ${text('تحدي سريع','Quick challenge')}</h3><p>${text(q[0],q[1])}</p><div class="studio-quiz-options">${q[2].map((a,i)=>`<button data-studio-answer="${i}" class="${choice===i?(i===q[4]?'correct':'wrong'):''}" aria-pressed="${choice===i}">${text(a,q[3][i])}</button>`).join('')}</div>${choice===undefined?'':`<p class="studio-quiz-result">${choice===q[4]?text('✓ إجابة صحيحة','✓ Correct'):text('✕ جرب تراجع القانون','✕ Review the formula')} — ${q[5]}</p>`}</section>`;}
+function renderPage(){if(specialMode!=='magStudio')return;
+ explored.add(s.form);views.add(s.view);
+ const html=`<div class="magstudio"><div class="breadcrumb"><button data-studio-home="1">${text('جميع المعامل','All labs')}</button><span> / </span><span>Magnetic Studio</span></div>
+ <header class="extra-header studio-header"><div><span class="eyebrow">MAGNETIC STUDIO · 2D / 3D</span><h1>🧭 ${text('معمل المغناطيسية الشامل','Interactive Magnetic Studio')}</h1><p>${text('اختار الشكل، غيّر أي متغير، واتفرج على المجال والقراءات تتغير فورًا. المعامل القديمة محفوظة زي ما هي.','Choose a shape, change the variables, and watch the field and readings update live. All original labs are preserved.')}</p></div><button class="lab-action" data-studio-home="1">${text('← العودة','← Back')}</button></header>
+ <section class="studio-panel studio-form-panel"><h2>① ${text('اختار الشكل','Choose an experiment')}</h2><div class="studio-form-grid">${forms.map(([id,en,ar])=>`<button type="button" data-studio-form="${id}" class="studio-form ${s.form===id?'selected':''}" aria-pressed="${s.form===id}"><span>${({wire:'│',loop:'◯',coil:'◎',solenoid:'▥',parallel:'║',perpendicular:'╋',flux:'Φ'})[id]}</span><b>${text(ar,en)}</b></button>`).join('')}</div></section>
+ <div class="studio-columns"><div class="studio-maincol"><section class="studio-panel studio-viewport-panel"><div class="studio-viewport-top"><h2>② ${text('شوف التجربة','Live simulation')}</h2><div class="studio-view-tabs"><button data-studio-view="2d" class="${s.view==='2d'?'selected':''}">▣ 2D</button><button data-studio-view="3d" class="${s.view==='3d'?'selected':''}">⬡ 3D</button></div></div><div class="studio-viewport" id="studio-scene">${sceneHTML()}</div><p class="studio-scene-note" id="studio-note"></p></section>
+ <section class="studio-panel"><h2>③ ${text('القياسات المباشرة','Live measurements')} <span class="studio-live">● LIVE</span></h2><div class="studio-metrics" id="studio-metrics">${metricsHTML()}</div><p class="studio-explain" id="studio-explain"></p></section>${quizHTML()}
+ </div><aside class="studio-panel studio-controls"><h2>④ ${text('لوحة التحكم','Controls')}</h2><p class="studio-controls-description">${text('حرّك المؤشرات؛ القيم والرسم بيتغيروا في نفس اللحظة.','Move the sliders to update the simulation immediately.')}</p><div id="studio-control-list">${controlsHTML()}</div></aside></div>
+ <div class="studio-footer-note">${text('ملاحظة علمية: خطوط المجال المرسومة توضيحية؛ معادلات B محسوبة عند نقطة القياس أو المركز وفق افتراضات سلك طويل أو ملف مثالي. تمثيل 3D قابل للدوران وليس محاكي مجال ثلاثي الأبعاد لكل نقطة.','Scientific note: Displayed field lines are illustrative; B values are computed at the probe or center under idealized wire/coil assumptions. The orbitable 3D view is not a full spatial field solver.')}</div></div>`;
+ $('extraView').innerHTML=html;
+ if(s.view==='3d')startCanvas();
+ refreshData();
+}
+function refreshData(){if(specialMode!=='magStudio')return;const metrics=$('studio-metrics');if(metrics)metrics.innerHTML=metricsHTML();const calc=field(s);const note=$('studio-note');if(note)note.textContent=(s.view==='2d'?text('عرض مسطح • ','2D view • '):text('مجسم قابل للدوران • ','Orbitable 3D • '))+controlsNote[s.form];const explanation=$('studio-explain');if(explanation)explanation.textContent=calc.at+' — '+calc.dir;for(const el of document.querySelectorAll('[data-studio-value]')){const k=el.dataset.studioValue;const input=document.getElementById('studio-'+k);if(input)el.textContent=f(s[k],Number.isInteger(+input.step)?0:+input.step>=.1?1:2)+' '+(k==='turns'?'':k==='angle'?'°':k==='externalB'?'T':k==='current'||k==='current2'?'A':k==='zoom'?'×':'m');}}
+function refreshScene(){if(specialMode!=='magStudio')return;if(s.view==='2d'){$('studio-scene').innerHTML=sceneHTML();}else if(!lastCanvas||!lastCanvas.isConnected)startCanvas();refreshData();}
+function startCanvas(){cancelAnimationFrame(stageRAF);lastCanvas=$('studio-canvas');frameTime=0;if(!lastCanvas)return;lastCanvas.style.touchAction='none';
+ const canvas=lastCanvas;function draw(t){if(specialMode!=='magStudio'||s.view!=='3d'||!canvas.isConnected)return;if(frameTime){phase+=(t-frameTime)/1000*(s.on?(.35+s.current*.035):0)}frameTime=t;paint3D(canvas,s,phase);stageRAF=requestAnimationFrame(draw)}stageRAF=requestAnimationFrame(draw);
+}
+// New data attributes only. Existing lesson handlers and their state are not touched.
+document.addEventListener('click',e=>{
+ const open=e.target.closest('[data-studio-open]');if(open){e.preventDefault();openStudio();return;}
+ if(specialMode!=='magStudio')return;
+ if(e.target.closest('[data-studio-home]')){showHome();return;}
+ const choose=e.target.closest('[data-studio-form]');if(choose){s.form=choose.dataset.studioForm;explored.add(s.form);renderPage();return;}
+ const view=e.target.closest('[data-studio-view]');if(view){s.view=view.dataset.studioView;views.add(s.view);renderPage();return;}
+ const dir=e.target.closest('[data-studio-direction]');if(dir){const id=dir.dataset.studioDirection;s[id]=+dir.dataset.dir;if(s[id]===-1)reversed=true;renderPage();return;}
+ const toggle=e.target.closest('[data-studio-toggle]');if(toggle){s[toggle.dataset.studioToggle]=!s[toggle.dataset.studioToggle];renderPage();return;}
+ if(e.target.closest('[data-studio-power]')){s.on=!s.on;renderPage();return;}
+ if(e.target.closest('[data-studio-resetcamera]')){s.yaw=.7;s.pitch=.42;s.zoom=1;renderPage();return;}
+ const answer=e.target.closest('[data-studio-answer]');if(answer){quizChoice[s.form]=+answer.dataset.studioAnswer;const box=document.querySelector('.studio-quiz');if(box)box.outerHTML=quizHTML();return;}
+});
+document.addEventListener('input',e=>{if(specialMode!=='magStudio'||!e.target.matches('[data-studio-range]'))return;const key=e.target.dataset.studioRange;s[key]=+e.target.value;refreshScene();});
+// Rotating the 3D canvas works with pointer devices, mouse and touch.
+document.addEventListener('pointerdown',e=>{if(specialMode!=='magStudio')return;const canvas=e.target.closest('#studio-canvas');if(canvas){mouseOrbit={x:e.clientX,y:e.clientY,id:e.pointerId};canvas.setPointerCapture?.(e.pointerId);e.preventDefault();return;}
+ if(s.view==='2d'&&e.target.closest('.mag-probe')){probeDragging=true;e.preventDefault();}
+});
+document.addEventListener('pointermove',e=>{if(specialMode!=='magStudio')return;if(mouseOrbit){s.yaw+=(e.clientX-mouseOrbit.x)*.009;s.pitch=Math.max(-1.4,Math.min(1.4,s.pitch+(e.clientY-mouseOrbit.y)*.009));mouseOrbit.x=e.clientX;mouseOrbit.y=e.clientY;e.preventDefault();return;}
+ if(!probeDragging||s.view!=='2d')return;const svg=document.querySelector('#studio-scene svg');if(!svg)return;const point=svg.createSVGPoint();point.x=e.clientX;point.y=e.clientY;const ctm=svg.getScreenCTM();if(!ctm)return;const pos=point.matrixTransform(ctm.inverse());let fx=s.form==='parallel'?620:s.form==='wire'?480:450;let fy=s.form==='parallel'?260:s.form==='wire'?390:420;let originY=s.form==='perpendicular'?168:s.form==='wire'?161:164;s.probeX=Math.round(Math.max(-.35,Math.min(.35,(pos.x-310)/fx))*100)/100;s.probeY=Math.round(Math.max(-.30,Math.min(.30,(originY-pos.y)/fy))*100)/100;
+ const mark=svg.querySelector('.mag-probe');if(mark)mark.setAttribute('transform',`translate(${310+s.probeX*fx},${originY-s.probeY*fy})`);refreshData();e.preventDefault();
+});
+document.addEventListener('pointerup',()=>{if(probeDragging){probeDragging=false;refreshScene()}mouseOrbit=null;});document.addEventListener('pointercancel',()=>{probeDragging=false;mouseOrbit=null;});
+document.addEventListener('wheel',e=>{if(specialMode!=='magStudio'||!e.target.closest('#studio-canvas'))return;e.preventDefault();s.zoom=Math.max(.55,Math.min(1.8,s.zoom*(e.deltaY<0?1.07:.93)));refreshData();},{passive:false});
+// Keep the existing EN/Arabic toggle's behavior; only refresh this optional page afterward.
+const originalChangeLanguage=changeLanguage;
+changeLanguage=function(lang){originalChangeLanguage(lang);const link=document.querySelector('.studio-sidebar-link');if(link)link.querySelector('span:nth-child(2)').childNodes[0].textContent=text('معمل المغناطيسية الشامل','Magnetic Studio');if(specialMode==='magStudio')renderPage();};
+})();
 
 </script>
 </body>
